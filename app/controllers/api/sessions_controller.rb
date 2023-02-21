@@ -1,7 +1,8 @@
 class Api::SessionsController < ApplicationController
   def show
     if current_user 
-      render json: current_user 
+      @user = current_user
+      render 'api/users/show' 
     else
       render json: { user: nil }
   end
@@ -10,7 +11,7 @@ class Api::SessionsController < ApplicationController
     @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
     if @user 
       login!(@user)
-      render json: @user
+      render 'api/users/show' 
     else
       @user = User.new(email: params[:user][:email])
       flash.now[:errors] = ['Invalid email or password']
