@@ -12,13 +12,23 @@ class ApplicationController < ActionController::API
     helper_method :current_user, :logged_in?
 
     def current_user
+        return nil if session[:session_token].nil?
         @current_user = User.find_by(session_token: session[:session_token])
     end
 
     def require_logged_in
-        redirect_to new_session_url unless logged_in?
+        # redirect_to new_session_url unless logged_in?
+        if !logged_in?
+            render json: {errors: ['Must be logged in']}, status: :unauthorized
+        end
     end
 
+    def require_logged_out
+        if logged_in?
+            render json: {errors: ['Must be logged out']}, status: 403
+        end
+    end
+    
     def logged_in?
         !!current_user 
     end
@@ -32,21 +42,8 @@ class ApplicationController < ActionController::API
         current_user.reset_session_token!
         session[:session_token] = nil 
         @current_user = nil 
-    end
+    end  
 
-    def test
-        if params.has_key?(:login)
-            login!(User.first)
-        elsif params.has_key?(:logout)
-            logout!
-        end
-
-        if current_user
-            render json: { user: current_user.slice('id', 'username', 'session_token') }
-        else
-            render json: ['No current user']
-        end
-    end    
 
     private
 

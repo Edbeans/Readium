@@ -1,37 +1,19 @@
 class User < ApplicationRecord
-  has_secure_password
-
-  validates :username, 
-    uniqueness: true, 
-    length: { in: 3..30 }, 
-    format: { without: URI::MailTo::EMAIL_REGEXP, message:  "can't be an email" }
-  validates :email, 
-    uniqueness: true, 
-    length: { in: 3..255 }, 
-    format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :session_token, presence: true, uniqueness: true
+  validates :email, :session_token, presence: true, uniqueness: true 
+  validates :email, length: { in: 3..255 }, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, length: { in: 6..255 }, allow_nil: true
-
-  attr_reader :password
+  
+  has_secure_password
 
   before_validation :ensure_session_token
   
-  def self.find_by_credentials(username, password)
-      user = User.find_by(username: username)
-      if user && user.is_password?(password)
-          user
+  def self.find_by_credentials(email, password)
+      user = User.find_by(email: email)
+      if user && user.authenticate(password)
+          return user
       else
           nil
       end
-  end
-
-  def password=(password)
-      self.password_digest = BCrypt::Password.create(password)
-      @password = password
-  end
-
-  def is_password?(password)
-      BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
   def reset_session_token!
