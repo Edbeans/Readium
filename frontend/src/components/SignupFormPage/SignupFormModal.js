@@ -2,15 +2,22 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
-// import './SignupFormPage.css';
+import './SignupForm.css';
 
-function SignupFormPage() {
+function SignupFormPage(props) {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState([]);
+    const setShowSignUpModal = props.setShowSignUpModal;
+    const setShowLoginModal = props.setShowLoginModal;
+
+    const switchForm = () => {
+        setShowSignUpModal(false); 
+        setShowLoginModal(true);
+    }
 
     if (sessionUser) return <Redirect to="/" />;
 
@@ -37,37 +44,37 @@ function SignupFormPage() {
 
     return (
         <form onSubmit={handleSubmit}>
-        <ul>
-            {/* {errors.map(error => <li key={error}>{error}</li>)} */}
-        </ul>
-        <label>
-            Email
-            <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            />
-        </label>
-        <label>
-            Password
-            <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            />
-        </label>
-        <label>
-            Confirm Password
-            <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-            />
-        </label>
-        <button type="submit">Sign Up</button>
+            <ul>
+                {errors.map(error => <li key={error}>{error}</li>)}
+            </ul>
+            <label>
+                Email
+                <input
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                />
+            </label>
+            <label>
+                Password
+                <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                />
+            </label>
+            <label>
+                Confirm Password
+                <input
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+                />
+            </label>
+            <button type="submit">Sign Up</button>
         </form>
 );
 }

@@ -8,5 +8,11 @@
     width: 100px;
     height: 40px;
     text-align: center; 
+    transition: .5s; 
+}
+
+.signup-link-button:hover {
+    background-color: white;
+    color: black; 
 }
 

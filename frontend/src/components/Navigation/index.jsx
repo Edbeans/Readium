@@ -1,15 +1,19 @@
 import './Navigation.css';
 import React from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal'; 
 import SignupFormModal from '../SignupFormPage';
 import logo from '../../assets/hp-icon.png';
+// import githubicon from '../../assets/github-icon.png';
 import StartReadingFormModal from '../StartReadingPage';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   let sessionLinks;
   if (sessionUser) {
@@ -19,8 +23,16 @@ function Navigation() {
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal />
-        <SignupFormModal />
+        <LoginFormModal 
+          setShowSignUpModal={setShowSignUpModal} 
+          setShowLoginModal={setShowLoginModal}
+          showLoginModal={showLoginModal} 
+          />
+        <SignupFormModal 
+          setShowSignUpModal={setShowSignUpModal} 
+          setShowLoginModal={setShowLoginModal}
+          showSignUpModal={showSignUpModal} 
+        />
       </>
     );
   }
@@ -36,8 +48,7 @@ function Navigation() {
             </NavLink>
           </div>
           <div className='nav-link-right'>
-            <LoginFormModal />
-            <SignupFormModal />
+            {sessionLinks}
           </div>
       </div>
 
@@ -52,7 +63,7 @@ function Navigation() {
       </div>
 
       <div className='trending-stories-container'>
-        
+
       </div>
     </>
   );

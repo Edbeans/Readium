@@ -9,15 +9,20 @@ body {
 
 @font-face {
     font-family: 'helvetica-neue-light';
-    src: url('./assets/fonts/HelveticaNeue-Light.otf')
+    src: url('./assets/fonts/HelveticaNeue-Light.otf');
 }
 
 @font-face {
     font-family: 'GT-super';
-    src: url('./assets/fonts/GT-Super-Text-Regular-Trial.otf')
+    src: url('./assets/fonts/GT-Super-Text-Regular-Trial.otf');
 }
 
 @font-face {
     font-family: 'GT-super-light';
-    src: url('./assets/fonts/GT-Super-Display-Light-Trial.otf')
+    src: url('./assets/fonts/GT-Super-Display-Light-Trial.otf');
+}
+
+@font-face {
+    font-family: 'GT-super-reg';
+    src: url('./assets/fonts/GT-Super-Display-Regular-Trial.otf');
 }

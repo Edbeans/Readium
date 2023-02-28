@@ -10,4 +10,10 @@
     width: 210px;
     height: 40px;
     text-align: center; 
+    transition: .5s; 
+}
+
+.start-reading-button:hover {
+    background-color: white;
+    color: black; 
 }

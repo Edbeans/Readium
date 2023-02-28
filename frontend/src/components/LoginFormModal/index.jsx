@@ -4,18 +4,25 @@ import LoginForm from './LoginForm';
 import './LoginForm.css';
 
 
-function LoginFormModal() {
-    const [showModal, setShowModal] = useState(false);
+function LoginFormModal(props) {
+    // const [showLoginModal, setShowLoginModal] = useState(false);
+    const setShowLoginModal = props.setShowLoginModal; 
+    const setShowSignUpModal = props.setShowSignUpModal; 
+    const showLoginModal = props.showLoginModal;
 
     return (
         <>
             <button className='login-link-button'
-            onClick={() => setShowModal(true)}>
+            onClick={() => setShowLoginModal(true)}>
             Sign In
             </button>
-            {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
-                <LoginForm />
+            {showLoginModal && (
+                <Modal onClose={() => setShowLoginModal(false)}>
+                <LoginForm 
+                    setShowSignUpModal={setShowSignUpModal} 
+                    setShowLoginModal={setShowLoginModal}
+                    showLoginModal={showLoginModal}
+                />
                 </Modal>
             )}
         </>
