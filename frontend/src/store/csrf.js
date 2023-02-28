@@ -36,4 +36,4 @@ async function csrfFetch(url, options = {}) {
     return response;
   }
   
-  export default csrfFetch; 
+export default csrfFetch; 

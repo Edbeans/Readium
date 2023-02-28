@@ -1,12 +1,13 @@
-.signup-link-button {
+.start-reading-button {
     font-family: 'helvetica-neue-light';
+    font-size: 18px;
+    font-weight: 400;
     background-color: black; 
     border-radius: 40px;
     border: none; 
     color: white; 
     cursor: pointer; 
-    width: 100px;
+    width: 210px;
     height: 40px;
     text-align: center; 
 }
-

@@ -1,0 +1,12 @@
+.login-link-button {
+    font-family: 'helvetica-neue-light';
+    background-color: transparent; 
+    border-radius: 16px;
+    border: none; 
+    color: black; 
+    cursor: pointer; 
+    width: 60px;
+    height: 20px;
+    margin-right: 10px;
+    text-align: center; 
+}
