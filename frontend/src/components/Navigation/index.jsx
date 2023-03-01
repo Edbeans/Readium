@@ -58,7 +58,11 @@ function Navigation() {
           Discover stories, thinking, and expterise from writers on any topic.
         </h3>
         <div className='start-reading'>
-          <StartReadingFormModal />
+          <StartReadingFormModal 
+            setShowSignUpModal={setShowSignUpModal} 
+            setShowLoginModal={setShowLoginModal}
+            showSignUpModal={showSignUpModal}
+          />
         </div>
       </div>
 

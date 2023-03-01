@@ -43,39 +43,54 @@ function SignupFormPage(props) {
 };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
-            <label>
-                Email
-                <input
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                />
-            </label>
-            <label>
-                Password
-                <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                />
-            </label>
-            <label>
-                Confirm Password
-                <input
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                required
-                />
-            </label>
-            <button type="submit">Sign Up</button>
-        </form>
+        <div className='wrapper'>
+            <div className='form-container'>
+                <h2 className='signup-form-message'>Join Readium.</h2>
+                <div className='signup-form-box'>
+                    <form onSubmit={handleSubmit}>
+                        <div className='input-heading'>Your email</div>
+                        <div className='input-box input-email'>
+                            <input
+                                className='input-content'
+                                type="text"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className='input-heading'>Your password</div>
+                        <div className='input box input-password'>
+                            <input
+                                className='input-content'
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className='input-heading'>Confirm password</div>
+                        <div className='input box input-confirm-password'>
+                            <input
+                                className='input-content'
+                                type="password"
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className='error-messages'>
+                            {errors.map(error => <p key={error}>{error}</p>)}
+                        </div>
+                        <div className='input box su-buttons'>
+                            <div className='su-button'>
+                                <button className='button' type="submit">Sign Up</button>
+                            </div>
+                        </div>
+                    </form>
+                    <p className='sign-in-msg'>Already have an account? <span className='sign-in' onClick={switchForm}>Sign in</span></p>
+                </div>
+            </div>
+        </div>
 );
 }
 

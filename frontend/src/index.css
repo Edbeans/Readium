@@ -8,6 +8,11 @@ body {
 }
 
 @font-face {
+    font-family: 'helvetica-neue-regular';
+    src: url('./assets/fonts/HelveticaNeue-Regular.otf');
+}
+
+@font-face {
     font-family: 'helvetica-neue-light';
     src: url('./assets/fonts/HelveticaNeue-Light.otf');
 }

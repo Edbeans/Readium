@@ -46,41 +46,47 @@ function LoginForm(props) {
 
     return (
         <>
-            <div className='form-container'>
-                <h2 className='login-form-message'>Welcome back.</h2>
-                <div className='login-form-box'>
-                    <form onSubmit={handleSubmit}>
-                        <div className='input-heading'>Your email</div>
-                        <div className='input-box input-email'>
-                                <input
-                                    className='input-content'
-                                    type="text"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    // placeholder='email' 
-                                    required
-                                />
-                        </div>
-                        <div className='input-heading'>Your password</div>
-                        <div className='input-box input-password'>
-                                <input 
-                                    className='input-content'
-                                    type="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    // placeholder='password'
-                                    required
-                                />
-                        </div>
-                        <div className='error-messages'>
-                            {errors.map(error => <p key={error}>{error}</p>)}
-                        </div>
-                        <div className='input-box'>
-                            <div><button type="submit">Log In</button></div>
-                            <div><button onClick={demoLogin}>Demo</button></div>
-                        </div>
-                    </form>    
-                    <p>No account? <span className='create-one' onClick={switchForm}>Create One</span></p>
+            <div className='wrapper'>
+                <div className='form-container'>
+                    <h2 className='login-form-message'>Welcome back.</h2>
+                    <div className='login-form-box'>
+                        <form onSubmit={handleSubmit}>
+                            <div className='input-heading'>Your email</div>
+                            <div className='input-box input-email'>
+                                    <input
+                                        className='input-content'
+                                        type="text"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        // placeholder='email' 
+                                        required
+                                    />
+                            </div>
+                            <div className='input-heading'>Your password</div>
+                            <div className='input-box input-password'>
+                                    <input 
+                                        className='input-content'
+                                        type="password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        // placeholder='password'
+                                        required
+                                    />
+                            </div>
+                            <div className='error-messages'>
+                                {errors.map(error => <p key={error}>{error}</p>)}
+                            </div>
+                            <div className='input-box lf-buttons'>
+                                <div className='lf-button'>
+                                    <button className='button' type="submit">Log In</button>
+                                </div>
+                                <div className='lf-demo-button'>
+                                    <button className='button'onClick={demoLogin}>Demo</button>
+                                </div>
+                            </div>
+                        </form>    
+                        <p className='create-one-msg'>No account? <span className='create-one' onClick={switchForm}>Create one</span></p>
+                    </div>
                 </div>
             </div>
         </>

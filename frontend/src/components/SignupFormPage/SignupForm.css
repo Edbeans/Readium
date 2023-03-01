@@ -16,3 +16,112 @@
     color: black; 
 }
 
+.wrapper {
+    position: relative;
+    width: 600px;
+    height: 650px;
+    background-color: white; 
+    border-radius: 4px; 
+}
+
+.form-container { 
+    margin: 0; 
+    height: 550px; 
+    width: 600px;   
+
+}
+
+.signup-form-message {
+    margin-top: 70px; 
+    font-family: 'GT-super-reg';
+    text-align: center; 
+    line-height: 50px; 
+    font-size: 28px; 
+    font-weight: 1; 
+}
+
+.signup-form-box {
+    font-family: 'helvetica-neue-light';
+    text-align: center; 
+    margin-top: 75px;
+}
+
+.sign-in-msg {
+    font-weight: lighter; 
+    font-family: 'helvetica-neue-light';
+}
+
+.sign-in { 
+    font-family: 'helvetica-neue-regular';
+    font-weight: bold; 
+    color: green; 
+    cursor: pointer; 
+}
+
+.input-heading {
+    font-size: 12px; 
+    line-height: 20px; 
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+
+.input-box {
+    border: none;  
+    margin-bottom: 20px;
+}
+
+.input-confirm-password {
+    margin-bottom: 20px; 
+}
+
+.input-content {
+    font-size: 15px;
+    border: none; 
+    border-bottom: 1px solid rgb(168, 168, 168); 
+    text-align: center; 
+    height: 20px;
+    width: 230px; 
+    cursor: text; 
+}
+
+.input-content:focus{
+    outline: none; 
+}
+
+.input-content:hover {
+    border-bottom: 1px solid rgba(41, 41, 41, 1);
+}
+
+.button {
+    font-family: 'helvetica-neue-light';
+    font-size: 14px;
+    font-weight: bold; 
+    background-color: black; 
+    border-radius: 40px;
+    border: none; 
+    color: white; 
+    cursor: pointer; 
+    width: 220px;
+    height: 35px;
+    text-align: center; 
+    transition: .5s; 
+    margin: 5px; 
+}
+
+.button:hover {
+    background-color: rgb(168, 168, 168); 
+    color: black; 
+}
+
+.error-messages {
+    color: red; 
+}
+
+
+
+
+
+
+
+
+
