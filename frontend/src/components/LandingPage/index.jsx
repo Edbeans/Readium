@@ -1,4 +1,4 @@
-import './Navigation.css';
+import './LandingPage.css';
 import React from 'react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -7,10 +7,9 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal'; 
 import SignupFormModal from '../SignupFormPage';
 import logo from '../../assets/hp-icon.png';
-// import githubicon from '../../assets/github-icon.png';
 import StartReadingFormModal from '../StartReadingPage';
 
-function Navigation() {
+function LandingPage() {
   const sessionUser = useSelector(state => state.session.user);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -73,4 +72,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default LandingPage;
