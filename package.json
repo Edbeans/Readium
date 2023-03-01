@@ -1,0 +1,25 @@
+{
+  "name": "readium",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "engines": {
+    "node": "16.18.1"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Edbeans/Readium.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Edbeans/Readium/issues"
+  },
+  "homepage": "https://github.com/Edbeans/Readium#readme"
+}
