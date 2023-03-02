@@ -3,9 +3,7 @@ import { Modal } from '../../context/Modal';
 import LoginForm from './LoginForm';
 import './LoginForm.css';
 
-
 function LoginFormModal(props) {
-    // const [showLoginModal, setShowLoginModal] = useState(false);
     const setShowLoginModal = props.setShowLoginModal; 
     const setShowSignUpModal = props.setShowSignUpModal; 
     const showLoginModal = props.showLoginModal;

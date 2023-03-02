@@ -27,10 +27,11 @@ const storeCurrentUser = user => {
 }
 
 export const signup = (user) => async (dispatch) => {
-    const { email, password } = user;
+    const { fullname, email, password } = user;
     const response = await csrfFetch("/api/users", {
         method: "POST",
         body: JSON.stringify({
+            fullname, 
             email,
             password
         })

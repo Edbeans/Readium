@@ -4,22 +4,27 @@ import SignupFormPage from './SignupFormModal';
 import './SignupForm.css';
 
 function SignupFormModal(props) {
-    // const [showSignUpModal, setShowSignUpModal] = useState(false);
     const setShowSignUpModal = props.setShowSignUpModal;
     const setShowLoginModal = props.setShowLoginModal;
     const showSignUpModal = props.showSignUpModal; 
+    
+    const handleModals = (e) => {
+        setShowSignUpModal(true)
+        setShowLoginModal(false)
+    }
+    
     return (
         <>
             <button 
             className='signup-link-button'
-            onClick={() => setShowSignUpModal(true)}>
+            onClick={handleModals}>
             Get started
             </button>
             {showSignUpModal && (
                 <Modal onClose={() => setShowSignUpModal(false)}>
                 <SignupFormPage 
-                    setShowSignUpModal={setShowSignUpModal} 
                     setShowLoginModal={setShowLoginModal}
+                    setShowSignUpModal={setShowSignUpModal} 
                     showSignUpModal={showSignUpModal} 
                 />
                 </Modal>

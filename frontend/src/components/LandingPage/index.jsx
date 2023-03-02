@@ -1,13 +1,13 @@
-import './LandingPage.css';
 import React from 'react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
+import ProfileButton from '../UserShowPage/ProfileButton';
 import LoginFormModal from '../LoginFormModal'; 
 import SignupFormModal from '../SignupFormPage';
-import logo from '../../assets/hp-icon.png';
 import StartReadingFormModal from '../StartReadingPage';
+import './LandingPage.css';
+import logo from '../../assets/hp-icon.png';
 
 function LandingPage() {
   const sessionUser = useSelector(state => state.session.user);

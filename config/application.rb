@@ -45,5 +45,9 @@ module AuthenticateMe
           secure: Rails.env.production?
       end
     end
+
+    initializer(:remove_extra_routes, after: :add_routing_paths) { |app|
+      app.routes_reloader.paths.delete_if {|path| path =~ /actionmailbox/ }
+    }
   end
 end

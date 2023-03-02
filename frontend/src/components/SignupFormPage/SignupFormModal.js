@@ -7,6 +7,7 @@ import './SignupForm.css';
 function SignupFormPage(props) {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+    const [fullname, setFullName] = useState(""); 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -25,7 +26,7 @@ function SignupFormPage(props) {
     e.preventDefault();
     if (password === confirmPassword) {
         setErrors([]);
-        return dispatch(sessionActions.signup({ email, password }))
+        return dispatch(sessionActions.signup({ fullname, email, password }))
         .catch(async (res) => {
         let data;
         try {
@@ -48,6 +49,16 @@ function SignupFormPage(props) {
                 <h2 className='signup-form-message'>Join Readium.</h2>
                 <div className='signup-form-box'>
                     <form onSubmit={handleSubmit}>
+                    <div className='input-heading'>Your full name</div>
+                        <div className='input-box input-fn'>
+                            <input
+                                className='input-content'
+                                type="text"
+                                value={fullname}
+                                onChange={(e) => setFullName(e.target.value)}
+                                required
+                            />
+                        </div>
                         <div className='input-heading'>Your email</div>
                         <div className='input-box input-email'>
                             <input
