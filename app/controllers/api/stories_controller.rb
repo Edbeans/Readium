@@ -16,7 +16,7 @@ class Api::StoriesController < ApplicationController
         if @story.save
             render :show 
         else
-            render json: @story.errors.full_messages, status: 422
+            render json: ['Was not able to make your story!']
         end
     end
 
@@ -28,7 +28,11 @@ class Api::StoriesController < ApplicationController
         end
 
     def destroy
-        @story.destroy
+        @story = Story.find(params[:id])
+        if @story && @pin.destory
+            render json: ['Story deleted.']
+        else
+            render json: @story.errors.full_messages, status: 422
     end
 
     private 
