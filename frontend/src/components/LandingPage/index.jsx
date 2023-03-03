@@ -9,15 +9,20 @@ function LandingPage() {
     const dispatch = useDispatch();
     const [showSignUpModal, setShowSignUpModal] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false);
-    const stories = useSelector(getStories);
+    const stories = useSelector(getStories); // [1, 2,, 3, 4 ,.. 10] 
+    
+    const trendingStories = []; 
+    for (let i = 0; i < 6; i++) {
+        trendingStories.push(stories[i])
+    }
 
     useEffect(() => {
         dispatch(fetchStories());
     }, [dispatch])
-
-    console.log(stories, "stories");
-    return (
-        <>
+    
+        
+        return (
+            <>
             <div className='body-below-header'>
             
                 <h1 className='bbh-heading'>Stay curious.</h1>
@@ -36,7 +41,7 @@ function LandingPage() {
             </div>
 
             <div className='trending-stories-container'>
-                <h2><span></span>Trending on medium</h2>
+                <h2>Trending on medium</h2>
                 <ul>{stories.map(story => <StoryIndexItem key={story.id} story={story} />)}</ul>
             </div>
         </>
