@@ -1,5 +1,5 @@
 class Api::StoriesController < ApplicationController
-    wrap_parameters include: Server.attribute_names
+    # wrap_parameters include: Server.attribute_names
 
     def index 
         @stories = Story.all 
@@ -26,19 +26,21 @@ class Api::StoriesController < ApplicationController
         else
             render json: @story.errors.full_messages, status: 422
         end
+    end
 
     def destroy
         @story = Story.find(params[:id])
-        if @story && @pin.destory
+        if @story && @story.destory
             render json: ['Story deleted.']
         else
             render json: @story.errors.full_messages, status: 422
+        end
     end
 
     private 
     
     def story_params
-        params.require(:story).permit(:title, :body)
+        params.require(:story).permit(:title, :body, :author_id)
     end
     
 end

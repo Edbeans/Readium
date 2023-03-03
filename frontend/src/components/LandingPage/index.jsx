@@ -1,75 +1,46 @@
-import React from 'react';
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import ProfileButton from '../UserShowPage/ProfileButton';
-import LoginFormModal from '../LoginFormModal'; 
-import SignupFormModal from '../SignupFormPage';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getStories, fetchStories } from '../../store/stories'; 
 import StartReadingFormModal from '../StartReadingPage';
-import './LandingPage.css';
-import logo from '../../assets/hp-icon.png';
+import StoryIndexItem from '../StoryIndexItem';
+import './LandingPage.css'; 
 
 function LandingPage() {
-  const sessionUser = useSelector(state => state.session.user);
-  const [showSignUpModal, setShowSignUpModal] = useState(false);
-  const [showLoginModal, setShowLoginModal] = useState(false);
+    const dispatch = useDispatch();
+    const [showSignUpModal, setShowSignUpModal] = useState(false);
+    const [showLoginModal, setShowLoginModal] = useState(false);
+    const stories = useSelector(getStories);
 
-  let sessionLinks;
-  if (sessionUser) {
-    sessionLinks = (
-      <ProfileButton user={sessionUser} />
-    );
-  } else {
-    sessionLinks = (
-      <>
-        <LoginFormModal 
-          setShowSignUpModal={setShowSignUpModal} 
-          setShowLoginModal={setShowLoginModal}
-          showLoginModal={showLoginModal} 
-          />
-        <SignupFormModal 
-          setShowSignUpModal={setShowSignUpModal} 
-          setShowLoginModal={setShowLoginModal}
-          showSignUpModal={showSignUpModal} 
-        />
-      </>
-    );
-  }
+    useEffect(() => {
+        dispatch(fetchStories());
+    }, [dispatch])
 
-  return (
-    <>
-      <div className='header'>
-          <div className='home-links'>
-            <NavLink 
-              className='readium-logo'exact to="/">
-              <span><img className='logo-link' src={logo} alt='logo' /></span>
-              Readium
-            </NavLink>
-          </div>
-          <div className='nav-link-right'>
-            {sessionLinks}
-          </div>
-      </div>
+    console.log(stories, "stories");
+    return (
+        <>
+            <div className='body-below-header'>
+            
+                <h1 className='bbh-heading'>Stay curious.</h1>
+                
+                <h3 className='bbh-description'>
+                    Discover stories, thinking, and expterise from writers on any topic.
+                </h3>
 
-      <div className='body-below-header'>
-        <h1 className='bbh-heading'>Stay curious.</h1>
-        <h3 className='bbh-description'>
-          Discover stories, thinking, and expterise from writers on any topic.
-        </h3>
-        <div className='start-reading'>
-          <StartReadingFormModal 
-            setShowSignUpModal={setShowSignUpModal} 
-            setShowLoginModal={setShowLoginModal}
-            showSignUpModal={showSignUpModal}
-          />
-        </div>
-      </div>
+                <div className='start-reading'>
+                    <StartReadingFormModal 
+                        setShowSignUpModal={setShowSignUpModal} 
+                        setShowLoginModal={setShowLoginModal}
+                        showSignUpModal={showSignUpModal}
+                    />
+                </div>
+            </div>
 
-      <div className='trending-stories-container'>
-
-      </div>
-    </>
-  );
+            <div className='trending-stories-container'>
+                <h2><span></span>Trending on medium</h2>
+                <ul>{stories.map(story => <StoryIndexItem key={story.id} story={story} />)}</ul>
+            </div>
+        </>
+    )
 }
 
-export default LandingPage;
+export default LandingPage; 

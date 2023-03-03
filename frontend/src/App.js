@@ -1,12 +1,14 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import NavBar from "./components/NavBar";
 import SignupFormPage from "./components/SignupFormPage";
-import LandingPage from "./components/LandingPage";
-import LoginForm from './components/LoginFormModal/LoginForm';
+import LoginForm from './components/LoginFormPage/LoginForm';
+import LandingPage from './components/LandingPage';
 
 function App() {
   return (
     <>
+    <NavBar />
     <Switch>
       <Route exact path='/' component={LandingPage}/>
       <Route exact path="/signup" component={SignupFormPage}/>
