@@ -1,0 +1,138 @@
+.user-nav-bar {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+    border-bottom-style: 2px solid lightgrey;
+    border-width: thin;  
+}
+
+.user-nav-right {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    height: 57px;   
+    padding: 0 24px;
+}
+
+.write-link {
+    padding-right: 5px; 
+    padding-top: 8px;
+    width: 100px; 
+}
+
+.write {
+    font-family: 'helvetica-neue-light';
+    text-decoration: none; 
+    color: rgb(158, 157, 157);
+    font-size: 15px; 
+}
+
+.write:hover {
+    color: rgba(41, 41, 41, 1);
+}
+
+.write-icon {
+    color: rgb(155, 154, 154);
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+.write-icon:hover {
+    color: rgba(41, 41, 41, 1);
+}
+
+.notif-bell-container {
+    padding-top: 10px;
+    padding-right: 20px; 
+}
+
+.notif-bell-icon {
+    color: rgb(166, 164, 164);
+}
+
+.notif-bell-icon:hover {
+    color: rgba(41, 41, 41, 1);
+    cursor: pointer;
+}
+
+.user-dropdown {
+    padding-right: 5%;
+}
+
+.profile-box {
+    width: 100px; 
+    padding-left: 10px; 
+    padding-top: 10px;
+}
+
+.profile-box:hover {
+    cursor: pointer;
+}
+
+.profile-pic {
+    border: 0.5px solid  rgb(230, 230, 230);
+    border-radius: 16px;
+    width: 32px; 
+}
+
+.expand-icon {
+    color: lightgray; 
+}
+
+/* DROPDOWN STYLING */
+
+.profile-dropdown {
+    position: absolute; 
+    top: 55px; 
+    right: 65px; 
+    width: 260px; 
+    height: 400px;  
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 4px;
+    box-shadow: rgb(230 230 230) 0px 1px 4px;
+    box-sizing: border-box;
+    opacity: 0;
+    animation: fadeIn .3s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards; 
+    z-index: 700; 
+}
+
+.dropdown-content {
+    list-style: none; 
+    padding-left: 0px; 
+    margin-top: 0px;
+}
+
+.dropdown-list {
+    font-family: 'helvetica-neue-light';
+    font-size: 14px; 
+    color: gray; 
+    padding-left: 20px;
+    padding: 8px 24px;
+}
+
+
+.profile-link, .profile-link:visited {
+    text-decoration: none; 
+    color: gray; 
+}
+.profile-link:hover {
+    color: rgba(41, 41, 41, 1);
+}
+
+.dropdown-list:hover {
+    color: rgba(41, 41, 41, 1);
+    cursor: pointer; 
+}
+
+.dropdown-section {
+    padding: 16px 0px; 
+    border-bottom: 1px solid rgb(230, 230, 230); 
+}
+
+.dropdown-last-section {
+    border-bottom: none; 
+}
+

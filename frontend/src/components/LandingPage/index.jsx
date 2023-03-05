@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getStories, fetchStories } from '../../store/stories'; 
 import StartReadingFormModal from '../StartReadingPage';
-import StoryIndexItem from '../StoryIndexItem';
+import StoryIndexItem from '../Stories/StoryIndexItem';
+// import { Link } from 'react-router-dom';
 import './LandingPage.css'; 
 
 function LandingPage() {
@@ -11,11 +12,10 @@ function LandingPage() {
     const [showLoginModal, setShowLoginModal] = useState(false);
     const stories = useSelector(getStories); // [1, 2,, 3, 4 ,.. 10] 
     
-    const trendingStories = []; 
-    for (let i = 0; i < 6; i++) {
-        trendingStories.push(stories[i])
-    }
-
+    const trendingStories = stories.slice(0, 6); // gives me the first six stories 
+    // for (let i = 0; i < 6; i++) {
+    //     trendingStories.push(stories[i])
+    // }
     useEffect(() => {
         dispatch(fetchStories());
     }, [dispatch])
@@ -37,12 +37,13 @@ function LandingPage() {
                         setShowLoginModal={setShowLoginModal}
                         showSignUpModal={showSignUpModal}
                     />
+                    {/* <Link to='/signup'>Start reading</Link> */}
                 </div>
             </div>
 
             <div className='trending-stories-container'>
                 <h2>Trending on medium</h2>
-                <ul>{stories.map(story => <StoryIndexItem key={story.id} story={story} />)}</ul>
+                <div>{trendingStories.map(story => <p><StoryIndexItem key={story.id} story={story} /></p>)}</div>
             </div>
         </>
     )

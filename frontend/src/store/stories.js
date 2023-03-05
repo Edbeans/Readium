@@ -7,14 +7,14 @@ const REMOVE_STORY = 'REMOVE_STORY';
 const receiveStories = (stories) => {
     return {
         type: RECEIVE_STORIES,
-        stories 
+        stories
     }
 }
 
-const receiveStory = (story) => {
+const receiveStory = (payload) => {
     return {
         type: RECEIVE_STORY,
-        story
+        payload
     }
 }
 
@@ -74,17 +74,17 @@ export const deleteStory = (storyId) => async (dispatch) => {
     }
 }
 
-
 const storiesReducer = (oldState = {}, action) => {
-    const newState = {...oldState}
+    let newState = {...oldState}
     
     switch (action.type) {
         case RECEIVE_STORIES:
             return action.stories;
         case RECEIVE_STORY:
-            const story = action.story;
-            newState[story.id] = story;
-            return newState; 
+            // const story = action.story;
+            // newState[story.id] = story;
+            return {...newState, [action.payload.story.id]: action.payload.story}
+            // return newState; 
         case REMOVE_STORY:
             const storyId = action.storyId;
             delete newState[storyId];

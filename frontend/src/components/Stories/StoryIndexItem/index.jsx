@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "./StoryIndexItem.css";
 // import { useDispatch } from 'react-redux';
 
 function StoryIndexItem ({story}) {
