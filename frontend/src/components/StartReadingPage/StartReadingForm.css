@@ -14,6 +14,6 @@
 }
 
 .start-reading-button:hover {
-    background-color: white;
+    background-color: rgba(230, 230, 230, 1);
     color: black; 
 }

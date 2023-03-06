@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getStories, fetchStories } from '../../store/stories'; 
 import StartReadingFormModal from '../StartReadingPage';
 import StoryIndexItem from '../Stories/StoryIndexItem';
+import trendicon from '../../assets/trendicon.png';
+import joinedhands from '../../assets/joinedhands.png';
 // import { Link } from 'react-router-dom';
 import './LandingPage.css'; 
 
@@ -13,6 +15,7 @@ function LandingPage() {
     const stories = useSelector(getStories); // [1, 2,, 3, 4 ,.. 10] 
     
     const trendingStories = stories.slice(0, 6); // gives me the first six stories 
+    const nonTrendingStories = stories.slice(6);
     // for (let i = 0; i < 6; i++) {
     //     trendingStories.push(stories[i])
     // }
@@ -24,27 +27,57 @@ function LandingPage() {
         return (
             <>
             <div className='body-below-header'>
-            
-                <h1 className='bbh-heading'>Stay curious.</h1>
-                
-                <h3 className='bbh-description'>
-                    Discover stories, thinking, and expterise from writers on any topic.
-                </h3>
+                <div className='bbh-container'>
+                    <div className='left-bbh'>
+                        <h1 className='bbh-heading'>Stay curious.</h1>
+                        
+                        <h3 className='bbh-description'>
+                            Discover stories, thinking, and expterise from writers on any topic.
+                        </h3>
 
-                <div className='start-reading'>
-                    <StartReadingFormModal 
-                        setShowSignUpModal={setShowSignUpModal} 
-                        setShowLoginModal={setShowLoginModal}
-                        showSignUpModal={showSignUpModal}
-                    />
-                    {/* <Link to='/signup'>Start reading</Link> */}
+                        <div className='start-reading'>
+                            <StartReadingFormModal 
+                                setShowSignUpModal={setShowSignUpModal} 
+                                setShowLoginModal={setShowLoginModal}
+                                showSignUpModal={showSignUpModal}
+                            />
+                            {/* <Link to='/signup'>Start reading</Link> */}
+                        </div>
+                    </div>
+
+                    <div className='right-bbh'>
+                        <img className='joined-hands-img' src={joinedhands} alt='joined-hands'/>
+                    </div>
                 </div>
             </div>
 
-            <div className='trending-stories-container'>
-                <h2>Trending on medium</h2>
-                <div>{trendingStories.map(story => <p><StoryIndexItem key={story.id} story={story} /></p>)}</div>
+            <div className='ts-container'>
+                <div>
+
+                    <div className='ts-header-container'>
+                        <img className='ti' src={trendicon} alt='trendicon'/>
+                        <h2 className='th'>Trending on Readium</h2>
+                    </div>
+
+                    {/* trending stories */}
+                    <div className='ts-content-container'>
+                        <div className='ts-grid'>
+                            {trendingStories.map(story => 
+                                <div className='ts-grid-container'>
+                                        <div className='ts-story'>
+                                            <StoryIndexItem key={story.id} story={story} />
+                                        </div>
+                                </div>)}
+                        </div>
+                    </div>
+
+                </div>
             </div>
+
+            {/* <div className='third-section-container'>
+                {nonTrendingStories.map(story => <StoryIndexItem key={story.id} story={story} />)}
+            </div> */}
+
         </>
     )
 }

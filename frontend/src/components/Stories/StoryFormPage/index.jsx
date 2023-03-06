@@ -40,7 +40,7 @@ function StoryFormPage() {
                                 placeholder='Tell your story...'
                             />
                         </div>
-                        <button type='submit'>publish</button>
+                        <button className='publish-btn' type='submit'>Publish</button>
                     </form>
                 </div>
             </>

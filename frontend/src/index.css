@@ -3,6 +3,11 @@ body {
 }
 
 @font-face {
+    font-family: 'helvetica-neue-bold';
+    src: url('./assets/fonts/HelveticaNeue-Bold.otf');
+}
+
+@font-face {
     font-family: 'noe-display-medium';
     src: url('./assets/fonts/noe_display_medium.otf');
 }

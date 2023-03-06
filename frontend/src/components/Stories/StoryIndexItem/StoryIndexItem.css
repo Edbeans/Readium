@@ -1,0 +1,14 @@
+.story-link {
+    font-family: 'helvetica-neue-bold';
+    text-decoration: none;
+    color: rgba(41, 41, 41, 1);
+    line-height: 20px; 
+    font-size: 16px; 
+    font-weight: 500;
+    cursor: pointer; 
+    transition: .5s; 
+}
+
+.story-link:hover {
+    color: lightgray; 
+}

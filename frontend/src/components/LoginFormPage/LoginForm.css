@@ -30,7 +30,7 @@
 }
 
 .login-link-button:hover {
-    color: white; 
+    color: rgba(230, 230, 230, 1);
 }
 
 .wrapper {

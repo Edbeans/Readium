@@ -5,10 +5,9 @@ import "./StoryIndexItem.css";
 
 function StoryIndexItem ({story}) {
     // const dispatch = useDispatch();
-    console.log(story);
     return (
         <>
-            <Link to={`/stories/${story.id}`}>{story.title}</Link>
+            <Link class='story-link' to={`/stories/${story.id}`}>{story.title}</Link>
         </>
     )
 }

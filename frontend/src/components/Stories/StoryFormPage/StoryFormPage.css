@@ -62,4 +62,20 @@
     font-weight: lighter; 
 }
 
+.publish-btn {
+    font-family: 'helvetica-neue-light';
+    background-color: #1a8917; 
+    border-radius: 40px;
+    border: none; 
+    color: white; 
+    cursor: pointer; 
+    width: 100px;
+    height: 40px;
+    text-align: center; 
+    transition: .5s; 
+}
 
+.publish-btn:hover {
+    background-color: rgba(230, 230, 230, 1);
+    color: black; 
+}
