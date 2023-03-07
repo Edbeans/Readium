@@ -1,49 +1,57 @@
-.author-header-container {
-    display: block; 
-    padding-top: 5%; 
-    padding-bottom: 5%; 
-    /* border-bottom: 1px solid */
+.user-story-container {
+    margin-top: 1em; 
     box-shadow: inset 0 -1px 0 rgb(98 104 114);
 }
 
-.author-name {
-    font-family: 'helvetica-neue-light';
-    font-size: 16px; 
-    font-weight: bolder; 
-    color: rgba(246, 246, 248, 1);
-    letter-spacing: 0; 
-    line-height: 52px; 
-    max-height: 52px; 
-}
-
-.story-date {
+.user-story-date {
     font-family: 'helvetica-neue-light'; 
     font-size: 14px; 
-    color: rgba(200, 202, 208, 1);
+    color: rgba(200, 202, 208, 1); 
     line-height: 20px; 
 }
 
-.story-title-container {
+.user-story-title-container {
     margin-top: 2em; 
     margin-bottom: 2em; 
 }
 
-.story-title {
-    font-family: 'helvetica-neue-bold'; 
-    font-size: 32px;
+.user-story-title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    font-size: 22px;
+    font-weight: 700; 
+    line-height: 28px; 
+    letter-spacing: 0; 
+    max-height: none; 
     color: rgba(246, 246, 248, 1);
+    text-decoration: none; 
+    display: -webkit-box; 
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
 }
 
-.story-body-container {
-    margin-bottom: 5em; 
+.user-story-body-container {
+    padding-bottom: 32px; 
 }
 
-.story-body {
+.user-story-body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: normal;
-    font-size: 20px; 
+    font-size: 16px; 
     letter-spacing: 0.008em; 
-    line-height: 32px; 
+    line-height: 24px; 
     word-break: break-word; 
     color: rgba(237, 237, 241, 1);
+    text-decoration: none; 
+    overflow: hidden; 
+    display: -webkit-box; 
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.u-and-d-container {
+    padding-bottom: 30px; 
+}
+
+.u-d-dropdown {
+    color: rgba(237, 237, 241, 1); 
 }

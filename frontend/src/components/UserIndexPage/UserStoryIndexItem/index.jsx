@@ -8,18 +8,26 @@ function UserStoryIndexItem ({story}) {
     return (
         <>
             {/* <Link to={`/stories/${story.id}`}>{story.title}</Link> */}
-            <div className='author-header-container'>
-                <h1 className='author-name'>{story.author}</h1>
-            </div>
+            
+            <div className='user-story-container'>
+                <h1 className='user-story-date'>{story.createdAt}</h1>        
 
-            <div className='story-title-container'>
-                <h1 className='story-title'>{story.title}</h1>
-            </div>
+                <div className='user-story-title-container'>
+                    <Link className='user-story-title' to={`/stories/${story.id}`}>
+                        {story.title}
+                    </Link>
+                </div>
 
-            <div className='story-body-container'>
-                <p className='story-body'>{story.body}</p>
+                <div className='user-story-body-container'>
+                    <Link className='user-story-body' to={`/stories/${story.id}`}>
+                        {story.body}
+                    </Link>
+                </div>
+
+                <div className='u-and-d-container'>
+                    <h1 className='u-d-dropdown'>Delete and Update</h1>
+                </div>
             </div>
-                <h1 className='story-date'>{story.createdAt}</h1>        
         </>
     )
 }

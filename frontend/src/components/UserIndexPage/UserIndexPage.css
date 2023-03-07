@@ -1,0 +1,16 @@
+.user-header-container {
+    display: block; 
+    padding-top: 5%; 
+    padding-bottom: 2%; 
+    box-shadow: inset 0 -1px 0 rgb(98 104 114);
+}
+
+.user-name {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    font-size: 42px; 
+    font-weight: 500; 
+    color: rgba(246, 246, 248, 1);
+    letter-spacing: 0; 
+    line-height: 52px; 
+    max-height: none; 
+}

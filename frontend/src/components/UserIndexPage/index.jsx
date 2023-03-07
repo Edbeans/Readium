@@ -26,8 +26,8 @@ function UserIndexPage() {
                         {/* USER STORIES      */}
                         <main className='main-class'>
                             <div className='sp-right-container'>
-                                <div className='author-header-container'>
-                                    <h1 className='author-name'>{sessionUser.fullname}</h1>       
+                                <div className='user-header-container'>
+                                    <h1 className='user-name'>{sessionUser.fullname}</h1>       
                                 </div>
                                 
                                 {chronoUserStories.map(story =>

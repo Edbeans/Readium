@@ -64,8 +64,10 @@
 }
 
 .story-title {
-    font-family: 'helvetica-neue-bold'; 
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
     font-size: 32px;
+    font-weight: 700; 
+    line-height: 40px; 
     color: rgba(246, 246, 248, 1);
 }
 
@@ -77,10 +79,11 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: normal;
     font-size: 20px; 
-    letter-spacing: 0.008em; 
+    font-weight: lighter;
+    letter-spacing: -0.003em;
     line-height: 32px; 
     word-break: break-word; 
-    color: rgba(237, 237, 241, 1);
+    color: rgb(210, 210, 213);
 }
 
 /* MAIN BODY LEFT SIDE  */
