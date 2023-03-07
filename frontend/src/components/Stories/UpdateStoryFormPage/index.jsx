@@ -1,23 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { createStory } from "../../../store/stories";
-import './StoryFormPage.css';
+import { useParams, useHistory } from "react-router-dom";
+import { getStory, updateStory, fetchStory } from "../../../store/stories";
+import './UpdateStoryFormPage.css';
 
-
-function StoryFormPage() {
+function UpdateStoryFormPage() {
+    const { storyId } = useParams();
+    const story = useSelector(getStory(storyId)); 
+    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    const dispatch = useDispatch(); 
-    const history = useHistory(); 
-    const story = { title: "", body: "", author_id: sessionUser.id }
+    const dispatch = useDispatch();
+
     const [title, setTitle] = useState(story.title);
     const [body, setBody] = useState(story.body); 
 
-    
+    useEffect(() => {
+        dispatch(fetchStory(storyId));
+    }, [dispatch, storyId]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const storyData = {...story, title, body}
-        dispatch(createStory(storyData)).then(history.push("/@profile")); 
+        dispatch(updateStory(storyData)).then(history.push("/@profile")); 
     }
 
     if (sessionUser) {
@@ -42,12 +46,13 @@ function StoryFormPage() {
                                 placeholder='Tell your story...'
                             />
                         </div>
-                        <button className='publish-btn' type='submit'>Publish</button>
+                        <button className='publish-btn' type='submit'>Update</button>
                     </form>
                 </div>
             </>
         )
-    } 
+    }
+    
 }
 
-export default StoryFormPage;
+export default UpdateStoryFormPage; 

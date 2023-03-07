@@ -22,6 +22,8 @@ class Api::StoriesController < ApplicationController
     end
 
     def update 
+        @story = Story.find_by(id: params[:id])
+
         if @story.update(story_params)
             render :show 
         else
@@ -31,7 +33,7 @@ class Api::StoriesController < ApplicationController
 
     def destroy
         @story = Story.find(params[:id])
-        if @story && @story.destory
+        if @story && @story.destroy
             render json: ['Story deleted.']
         else
             render json: @story.errors.full_messages, status: 422
