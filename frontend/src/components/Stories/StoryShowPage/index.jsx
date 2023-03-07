@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom";
 import { getStory, fetchStory } from "../../../store/stories";
 import { useDispatch, useSelector } from "react-redux";
 import "./StoryShowPage.css";
-// import NavBar from "../../NavBar";
-// import UserNavBar from "../../NavBar/UserNavBar/UserNavBar";
 
 function StoryShowPage() {
     const dispatch = useDispatch();
@@ -16,21 +14,8 @@ function StoryShowPage() {
         dispatch(fetchStory(storyId));
     }, [dispatch, storyId]);
 
-    // let navigationBar; 
-    //     if (!sessionUser) {
-    //         navigationBar = (
-    //             <NavBar /> 
-    //         );
-    //     } else {
-    //         navigationBar = (
-    //             <UserNavBar />
-    //         );
-    //     }
-
     return (
         <>
-            {/* {navigationBar} */}
-
             <div className='sp'>
 
                 <div className='sp-main'>
