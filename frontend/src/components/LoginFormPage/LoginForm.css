@@ -128,6 +128,8 @@
 }
 
 .error-messages {
+    padding-top: 1%;
+    padding-bottom: 3%;
     color: red; 
 }
 

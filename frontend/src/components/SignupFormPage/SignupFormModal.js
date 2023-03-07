@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
-import * as sessionActions from "../../store/session";
+import { useHistory, Redirect } from "react-router-dom";
+import * as sessionActions from "../../store/session"; 
 import './SignupForm.css';
 
 function SignupFormPage(props) {
+    const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const [fullname, setFullName] = useState(""); 
@@ -20,7 +21,7 @@ function SignupFormPage(props) {
         setShowLoginModal(true);
     }
 
-    if (sessionUser) return <Redirect to="/" />;
+    // if (sessionUser) return <Redirect to="/" />;
 
     const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,7 +39,8 @@ function SignupFormPage(props) {
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data]);
         else setErrors([res.statusText]);
-        });
+        })
+        .then(history.pushState("/@profile"));
     }
     return setErrors(['Confirm Password field must be the same as the Password field']);
 };

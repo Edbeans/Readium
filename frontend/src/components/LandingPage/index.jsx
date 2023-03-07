@@ -12,13 +12,11 @@ function LandingPage() {
     const dispatch = useDispatch();
     const [showSignUpModal, setShowSignUpModal] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false);
-    const stories = useSelector(getStories); // [1, 2,, 3, 4 ,.. 10] 
+    const stories = useSelector(getStories); 
     
     const trendingStories = stories.slice(0, 6); // gives me the first six stories 
     const nonTrendingStories = stories.slice(6);
-    // for (let i = 0; i < 6; i++) {
-    //     trendingStories.push(stories[i])
-    // }
+
     useEffect(() => {
         dispatch(fetchStories());
     }, [dispatch])
@@ -69,6 +67,7 @@ function LandingPage() {
                                         </div>
                                 </div>)}
                         </div>
+                        {/* <StoryIndexItem story={trendingStories[0]} /> */}
                     </div>
 
                 </div>

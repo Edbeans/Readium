@@ -51,8 +51,6 @@ function UserNavBar({ user }) {
               <div className='write-link'>
                 <NavLink className='write' to='/stories'>
                   <i className="far fa-edit write-icon"></i>
-                  {/* <img className='profile-pic' src={profilepic} alt='pfp'/> */}
-                  {/* <HistoryEduOutlinedIcon className='write-icon'/> */}
                   Write
                 </NavLink>
               </div>
@@ -66,13 +64,12 @@ function UserNavBar({ user }) {
                   <img className='profile-pic' src={profilepic} alt='pfp'/>
                   <DropDownIcon className='expand-icon' width="12px" height="12px"/>
                 </div>
-                {/* <i className = "fa-solid fa-user-circle" onClick={openMenu}/> */}
                 {showMenu && (
                   <div className='profile-dropdown'>
                     <ul className='dropdown-content'> 
                       <div className='dropdown-section'>
                         <li className='dropdown-list'>
-                            <NavLink className='profile-link' to='/@me'>Profile</NavLink>
+                            <NavLink className='profile-link' to='/@profile'>Profile</NavLink>
                         </li>
                         <li className='dropdown-list'>Library</li>
                         <li className='dropdown-list'>Stories</li>

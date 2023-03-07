@@ -7,7 +7,7 @@ function StoryIndexItem ({story}) {
     // const dispatch = useDispatch();
     return (
         <>
-            <Link class='story-link' to={`/stories/${story.id}`}>{story.title}</Link>
+            <Link className='story-link' to={`/stories/${story.id}`}>{story.title}</Link>
         </>
     )
 }

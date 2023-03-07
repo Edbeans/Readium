@@ -2,13 +2,13 @@ import React from 'react';
 import './StartReadingForm.css';
 
 function StartReadingFormModal(props) {
-    const setShowSignUpModal = props.setShowSignUpModal;
+    const setShowLoginModal = props.setShowSignUpModal;
 
     return (
         <>
             <button 
             className='start-reading-button'
-            onClick={() => setShowSignUpModal(true)}>
+            onClick={() => setShowLoginModal(true)}>
             Start reading
             </button>
         </>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useNavigate, Redirect } from "react-router-dom";
+import { useParams, useNavigate, useHistory, Redirect } from "react-router-dom";
 import { createStory } from "../../../store/stories";
 import './StoryFormPage.css';
 
@@ -8,14 +8,17 @@ import './StoryFormPage.css';
 function StoryFormPage() {
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch(); 
+    const history = useHistory(); 
     const story = { title: "", body: "", author_id: sessionUser.id }
     const [title, setTitle] = useState(story.title);
     const [body, setBody] = useState(story.body); 
 
+    // add a useHistory to redirect to usershowpage after 
+    // use the logout button as an example in userNavBar.js 
     const handleSubmit = (e) => {
         e.preventDefault();
         const storyData = {...story, title, body}
-        dispatch(createStory(storyData)); 
+        dispatch(createStory(storyData)).then(history.push("/@profile")); 
     }
 
     if (sessionUser) {
