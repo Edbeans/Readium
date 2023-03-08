@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect }from 'react';
 import "./UserStoryIndexItem.css";
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteStory } from '../../../store/stories';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 function UserStoryIndexItem ({story}) {
     const dispatch = useDispatch();
     const history = useHistory(); 
+    const [showMenu, setShowMenu] = useState(false); 
+
+    const openMenu = () => {
+        if (showMenu) return;
+        setShowMenu(true);
+    };
+
+    useEffect(() => {
+        if (!showMenu) return;
+
+        const closeMenu = () => {
+            setShowMenu(false);
+    };
+
+        document.addEventListener('click', closeMenu);
+
+        return () => document.removeEventListener("click", closeMenu);
+
+    }, [showMenu]);
 
     const removeStory = (e) => {
         e.preventDefault();
@@ -16,6 +36,7 @@ function UserStoryIndexItem ({story}) {
     return (
         <>
             <div className='user-story-container'>
+
                 <h1 className='user-story-date'>{story.createdAt}</h1>        
 
                 <div className='user-story-title-container'>
@@ -31,9 +52,27 @@ function UserStoryIndexItem ({story}) {
                 </div>
 
                 <div className='u-and-d-container'>
-                    <Link to={`/stories/${story.id}/update`}>Update</Link>
-                    <button onClick={removeStory}>Delete</button>
+                    <div className='ud-dropdown-icon'>
+                        <MoreHorizIcon className='more-horiz' onClick={openMenu}/>
+                    </div>
+                    {showMenu && (
+                        <div className='ud-dropdown'>
+                            <ul className='ud-content'>
+                                <div className='ud-section'>
+                                    <li className='ud-list'>
+                                        <Link className='edit-story-btn' to={`/stories/${story.id}/update`}>Edit story</Link>
+                                    </li>
+                                </div>
+                                <div className='ud-section delete-section'>
+                                    <li className='ud-list'>
+                                        <button className='delete-btn' onClick={removeStory}>Delete story</button>
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
+                    )}
                 </div>
+
             </div>
         </>
     )

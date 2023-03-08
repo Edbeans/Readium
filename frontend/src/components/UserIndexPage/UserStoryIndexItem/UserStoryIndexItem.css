@@ -48,10 +48,84 @@
     -webkit-line-clamp: 3;
 }
 
-.u-and-d-container {
-    padding-bottom: 30px; 
+
+/* UPDATE AND DELETE DROP DOWN  */
+.ud-dropdown {
+    position: absolute; 
+    width: 130px; 
+    height: 130px;  
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 4px;
+    box-shadow: rgb(230 230 230) 0px 1px 4px;
+    box-sizing: border-box;
+    opacity: 0;
+    animation: fadeIn .3s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards; 
+    z-index: 700; 
 }
 
-.u-d-dropdown {
-    color: rgba(237, 237, 241, 1); 
+.u-and-d-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding-bottom: 30px; 
+    margin-left: 530px;
+}
+
+.ud-dropdown-icon {
+    margin-left: 170px; 
+}
+
+.more-horiz, .more-horiz:hover {
+    color: rgba(200, 202, 208, 1);
+    cursor: pointer; 
+}
+
+.ud-content {
+    list-style: none; 
+}
+
+.ud-list {
+    font-family: 'helvetica-neue-light';
+    font-size: 14px; 
+    padding-left: 20px;
+    padding: 8px 24px;
+}
+
+.ud-section {
+    padding: 16px 0px; 
+    border-bottom: 1px solid rgb(230, 230, 230); 
+}
+
+.edit-story-btn, .edit-story-btn:visited {
+    text-decoration: none; 
+    color: gray;
+    padding-left: 6px; 
+}
+
+.edit-story-btn:hover {
+    color: rgba(41, 41, 41, 1);
+    cursor: pointer;
+}
+
+.delete-section {
+    border: none; 
+}
+
+.delete-btn {
+    font-family: 'helvetica-neue-light';
+    background-color: transparent;
+    border: none; 
+    width: 100px;
+    cursor: pointer; 
+    text-align: left; 
+    color: red;
+    font-size: 14px; 
+}
+
+.delete-btn:hover {
+    cursor: pointer; 
+    color: black;
 }
