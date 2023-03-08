@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getStories, fetchStories } from '../../store/stories'; 
-import StartReadingFormModal from '../StartReadingPage';
 import StoryIndexItem from '../Stories/StoryIndexItem';
+import NonTrendingIndexItem from './NonTrendingIndexItem';
 import trendicon from '../../assets/trendicon.png';
 import joinedhands from '../../assets/joinedhands.png';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './LandingPage.css'; 
 
 function LandingPage() {
     const dispatch = useDispatch();
-    const [showSignUpModal, setShowSignUpModal] = useState(false);
-    const [showLoginModal, setShowLoginModal] = useState(false);
     const stories = useSelector(getStories); 
-    
-    const trendingStories = stories.slice(0, 6); // gives me the first six stories 
+    const trendingStories = stories.slice(0, 6); 
     const nonTrendingStories = stories.slice(6);
 
     useEffect(() => {
@@ -24,39 +21,53 @@ function LandingPage() {
         
         return (
             <>
-            <div className='body-below-header'>
-                <div className='bbh-container'>
-                    <div className='left-bbh'>
-                        <h1 className='bbh-heading'>Stay curious.</h1>
-                        
-                        <h3 className='bbh-description'>
-                            Discover stories, thinking, and expterise from writers on any topic.
-                        </h3>
+            <div className='banner'>
+                <div className='banner-container'>
+                    <div className='banner-img-container'>
+                        <img className='banner-img' src={joinedhands} alt='joined-hands'/>
+                    </div>
 
-                        <div className='start-reading'>
-                            <StartReadingFormModal 
-                                setShowSignUpModal={setShowSignUpModal} 
-                                setShowLoginModal={setShowLoginModal}
-                                showSignUpModal={showSignUpModal}
-                            />
-                            {/* <Link to='/signup'>Start reading</Link> */}
+                    <div className='banner-header-container'>
+                        <div className='banner-header-section1'>
+                            <div className='banner-header-right'>
+                                <div className='banner-header-right1'>
+                                    <div className='banner-header-quote'>
+                                        <h2 className='bh-quote'>Stay curious.</h2>
+                                    </div>
+
+                                    <div className='banner-description'>
+                                        <span className='bd-span'>
+                                            <h3 className='bd-quote'>
+                                                Discover stories, thinking, and expertise from writers on any topic.
+                                            </h3>
+                                        </span>
+                                    </div>
+                                    
+                                    <div className='banner-start-reading-container'>
+                                        <span>
+                                            <button className='bsr-btn'>
+                                                <Link className='bsr-btn-link' to='/stories/1'>Start reading</Link>
+                                            </button>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div className='right-bbh'>
-                        <img className='joined-hands-img' src={joinedhands} alt='joined-hands'/>
-                    </div>
                 </div>
             </div>
 
+
+
+
             <div className='ts-container'>
                 <div>
-
                     <div className='ts-header-container'>
                         <img className='ti' src={trendicon} alt='trendicon'/>
                         <h2 className='th'>Trending on Readium</h2>
                     </div>
-
                     {/* trending stories */}
                     <div className='ts-content-container'>
                         <div className='ts-grid'>
@@ -67,16 +78,30 @@ function LandingPage() {
                                         </div>
                                 </div>)}
                         </div>
-                        {/* <StoryIndexItem story={trendingStories[0]} /> */}
                     </div>
-
                 </div>
             </div>
 
-            {/* <div className='third-section-container'>
-                {nonTrendingStories.map(story => <StoryIndexItem key={story.id} story={story} />)}
-            </div> */}
 
+
+
+            <div className='ee y gy gz ha'>
+                <div className='al am'>
+                    <div className='an ao ap aq ar as at ad'>
+                        <div className='l m n o p q'>
+                            <section className='pw-homefeed r s t u'>
+                                <div className='y'>
+                                    <div className='jr js y'>
+                                        {/* NonTrendingIndexItem will be a separate component to organize the divs  */}
+                                        {/* start from div className ad cw  */}
+                                        {nonTrendingStories.map(story => <NonTrendingIndexItem key={story.id} story={story} />)}
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

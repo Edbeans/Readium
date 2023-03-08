@@ -2,7 +2,9 @@
     font-family: 'helvetica-neue-light';
     background-color: black; 
     border-radius: 40px;
-    border: none; 
+    border-style: solid;  
+    border-color: rgba(25, 25, 25, 1);
+    border-width: 1px; 
     color: white; 
     cursor: pointer; 
     width: 100px;

@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import './LoginForm.css';
 
 
 function LoginForm(props) {
-    const history = useHistory();
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -42,7 +40,7 @@ function LoginForm(props) {
     // demo login
     const demoLogin = (e) => {
         e.preventDefault(); 
-        dispatch(login({fullname: 'Demo-Lotion', email: 'demo@user.io', password: 'password'}))
+        dispatch(login({fullname: 'Demo-Lotion', email: 'demo@user.io', password: 'password'})); 
     }
 
     return (

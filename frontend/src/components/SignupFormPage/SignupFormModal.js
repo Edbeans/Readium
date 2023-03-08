@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Redirect } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session"; 
 import './SignupForm.css';
 
 function SignupFormPage(props) {
     const history = useHistory();
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user);
     const [fullname, setFullName] = useState(""); 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -20,8 +19,6 @@ function SignupFormPage(props) {
         setShowSignUpModal(false); 
         setShowLoginModal(true);
     }
-
-    // if (sessionUser) return <Redirect to="/" />;
 
     const handleSubmit = (e) => {
     e.preventDefault();

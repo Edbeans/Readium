@@ -7,6 +7,14 @@
     border-width: thin;  
 }
 
+.hl-left {
+    display: block;
+}
+
+.user-logo-link {
+    padding-left: 240px; 
+}
+
 .user-nav-right {
     display: flex; 
     justify-content: space-between;
@@ -88,7 +96,7 @@
     top: 55px; 
     right: 150px; 
     width: 260px; 
-    height: 370px;  
+    height: 215px;  
     background-color: rgba(255, 255, 255, 1);
     border: 1px solid rgb(230, 230, 230);
     border-radius: 4px;
@@ -136,5 +144,14 @@
 
 .dropdown-last-section {
     border-bottom: none; 
+}
+
+.profile-person-link, .profile-person-link:visited {
+    text-decoration: none; 
+    color: gray; 
+}
+
+.profile-person-link:hover {
+    color: rgba(41, 41, 41, 1); 
 }
 

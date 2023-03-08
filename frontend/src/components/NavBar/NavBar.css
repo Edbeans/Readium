@@ -7,40 +7,86 @@
     }
 }
 
-.header {
-    /* position: fixed;  */
-    /* width: 100%;  */
+.nav {
+    display: block; 
+    background-color: #FFC017; 
+    border-bottom: solid 1px rgba(41, 41, 41, 1); 
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    right: 0; 
+    width: 100%; 
+    height: 75px; 
+    z-index: 10; 
+    transition: background-color 300ms linear; 
+}
+
+.nav-flex-container {
     display: flex; 
-    align-items: center;
-    background-color: rgb(255, 192, 23); 
-    justify-content: space-between;
-    margin: 0; 
-    padding-top: 1%;
-    padding-bottom: 1%;
-    border-bottom-style: solid;
-    border-width: thin; 
-    z-index: 99; 
+    justify-content: center; 
 }
-.home-links {
-    padding-left: 15%;
+
+.nav-flex-container1 {
+    display: block; 
+    max-width: 1192px; 
+    min-width: 0; 
+    width: 100%; 
+    margin: 0 64px; 
 }
-.logo-link {
-    height: 30px; 
-    padding-right: 5px; 
+
+.nav-flex-container2 {
+    display: flex; 
+    padding: 25px 0;
+    height: 75px; 
+    flex-direction: row; 
 }
+
+.home-link-left {
+    display: block; 
+}
+
 .readium-logo {
     font-family: 'noe-display-medium';
-    font-size: 2.5em; 
+    font-size: 2em; 
     color: black; 
     text-decoration: none; 
-    padding-left: 5px;
+    padding: 0; 
+    margin: 0; 
 }
 
-.nav-link-right {
-    padding-right: 20%;
+.logo-link {
+    height: 22px; 
+    padding-right: 5px; 
 }
 
-.login-link {
-    font-family: 'noe-display-medium';
-    padding-right: 5px;
+.flex-space-between {
+    display: block; 
+    flex: 1 0 auto; 
+}
+
+.home-link-right {
+    display: flex; 
+    flex-direction: row;
+    align-items: center; 
+    padding-bottom: 50px; 
+}
+
+.hlr {
+    display: inline-block; 
+}
+
+.hlr-div {
+    display: block; 
+    margin-right: 25px; 
+}
+
+.personal-link, .personal-link:visited{
+    text-decoration: none; 
+    cursor: pointer;
+    color: black; 
+    transition: .5s; 
+}
+
+.personal-link:hover {
+    color: rgb(187, 185, 185);
 }

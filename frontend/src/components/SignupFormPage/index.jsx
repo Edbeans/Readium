@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal } from '../../context/Modal';
 import SignupFormPage from './SignupFormModal';
 import './SignupForm.css';
@@ -8,7 +8,7 @@ function SignupFormModal(props) {
     const setShowLoginModal = props.setShowLoginModal;
     const showSignUpModal = props.showSignUpModal; 
     
-    const handleModals = (e) => {
+    const handleModals = () => {
         setShowSignUpModal(true)
         setShowLoginModal(false)
     }

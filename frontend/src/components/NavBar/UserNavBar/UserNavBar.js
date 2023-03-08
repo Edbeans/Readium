@@ -40,10 +40,12 @@ function UserNavBar({ user }) {
       <div className='user-nav-bar'>
 
             <div className='home-links'>
-              <NavLink 
-                className='user-logo'exact to="/">
-                <span><img className='logo-link' src={logo} alt='logo' /></span>
-              </NavLink>
+              <div className='hl-left'>
+                <NavLink 
+                  className='user-logo'exact to="/">
+                  <span><img className='logo-link user-logo-link' src={logo} alt='logo' /></span>
+                </NavLink>
+              </div>
             </div>
 
 
@@ -71,15 +73,12 @@ function UserNavBar({ user }) {
                         <li className='dropdown-list'>
                             <NavLink className='profile-link' to='/@profile'>Profile</NavLink>
                         </li>
-                        <li className='dropdown-list'>Library</li>
-                        <li className='dropdown-list'>Stories</li>
-                        <li className='dropdown-list'>Stats</li>
-                      </div>
-
-                      <div className='dropdown-section'>
-                        <li className='dropdown-list'>Settings</li>
-                        <li className='dropdown-list'>Refine recommendations</li>
-                        <li className='dropdown-list'>Manage publications</li>
+                        <li className='dropdown-list'>
+                          <a className='profile-person-link' href='https://github.com/Edbeans'>Github</a>
+                        </li>
+                        <li className='dropdown-list'>
+                        <a className='profile-person-link' href='https://www.linkedin.com/in/ying-edward/'>LinkedIn</a>
+                        </li>
                       </div>
 
                       <div className='dropdown-section dropdown-last-section'>

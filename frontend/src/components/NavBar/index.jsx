@@ -5,8 +5,10 @@ import { useSelector } from 'react-redux';
 import LoginFormModal from '../LoginFormPage'; 
 import SignupFormModal from '../SignupFormPage';
 import UserNavBar from './UserNavBar/UserNavBar';
-import './NavBar.css';
 import logo from '../../assets/hp-icon.png';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import './NavBar.css';
 
 function NavBar() {
   const sessionUser = useSelector(state => state.session.user);
@@ -14,26 +16,6 @@ function NavBar() {
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   let sessionLinks;
-  // if (sessionUser) {
-  //   sessionLinks = (
-  //     <ProfileButton user={sessionUser} />
-  //   );
-  // } else {
-  //   sessionLinks = (
-  //     <>
-  //       <LoginFormModal 
-  //         setShowSignUpModal={setShowSignUpModal} 
-  //         setShowLoginModal={setShowLoginModal}
-  //         showLoginModal={showLoginModal} 
-  //         />
-  //       <SignupFormModal 
-  //         setShowSignUpModal={setShowSignUpModal} 
-  //         setShowLoginModal={setShowLoginModal}
-  //         showSignUpModal={showSignUpModal} 
-  //       />
-  //     </>
-  //   );
-  // }
   if (!sessionUser) {
     sessionLinks = (
       <>
@@ -51,24 +33,48 @@ function NavBar() {
     );
   } 
   
-  // make a unique navbar for logged in users with an IF statement 
-  // if (!sessionUser) {
   if (!sessionUser) {
     return (
         <>
-          <div className='header'>
-              <div className='home-links'>
-                <NavLink 
-                  className='readium-logo'exact to="/">
-                  <span><img className='logo-link' src={logo} alt='logo' /></span>
-                  Readium
-                </NavLink>
+          <div className='nav'>
+            <div className='nav-flex-container'>
+              <div className='nav-flex-container1'>
+                <div className='nav-flex-container2'>                 
+                  <div className='home-link-left'>
+                    <NavLink 
+                      className='readium-logo'exact to="/">
+                      <span><img className='logo-link' src={logo} alt='logo' /></span>
+                      Readium
+                    </NavLink>
+                  </div>
+                  <div className='flex-space-between'></div>
+                  <div className='home-link-right'>
+                    <span className='hlr'>
+                      <div className='hlr-div'>
+                        <a className='personal-link' href='https://github.com/Edbeans'><GitHubIcon/></a>
+                      </div>
+                    </span>
+                    <span className='hlr'>
+                      <div className='hlr-div'>
+                        <a className='personal-link' href='https://www.linkedin.com/in/ying-edward/'><LinkedInIcon/></a>
+                      </div>
+                    </span>
+                    <span className='hlr'>
+                      <div className='hlr-div'>
+                        {sessionLinks}
+                      </div>
+                    </span>
+                  </div>
+                </div>
+
               </div>
-              <div className='nav-link-right'>
-                {sessionLinks}
-              </div>
+
+            </div>
+            
           </div>
         </>
+        
+
       );
   } else {
     return (
