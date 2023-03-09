@@ -15,4 +15,8 @@ class Story < ApplicationRecord
     belongs_to :author,
         foreign_key: :author_id,
         class_name: :User
+    
+    has_many :applauds,
+        foreign_key: :story_id,
+        class_name: :Applaud
 end

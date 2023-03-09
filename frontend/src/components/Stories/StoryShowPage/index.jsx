@@ -14,6 +14,10 @@ function StoryShowPage() {
         dispatch(fetchStory(storyId));
     }, [dispatch, storyId]);
 
+    // const addApplause = () => {
+
+    // }
+    
     return (
         <>
             <div className='sp'>
@@ -36,6 +40,11 @@ function StoryShowPage() {
 
                                 <div className='story-body-container'>
                                     <p className='story-body'>{story.body}</p>
+                                </div>
+
+                                {/* add an applauds button  */}
+                                <div>
+                                    <button>Applaud</button>
                                 </div>
                             </div>
                         </main>

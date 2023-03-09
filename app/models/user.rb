@@ -21,6 +21,11 @@ class User < ApplicationRecord
         class_name: :Story,
         dependent: :destroy
 
+    has_many :applauds,
+        foreign_key: :applauder_id,
+        class_name: :Applaud,
+        dependent: :destroy 
+
 
     has_secure_password
 

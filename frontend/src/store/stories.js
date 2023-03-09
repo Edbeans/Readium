@@ -34,7 +34,7 @@ export const getStories = (state) => {
 }
 
 export const fetchStories = () => async (dispatch) => {
-    const res = await fetch('/api/stories'); 
+    const res = await csrfFetch('/api/stories'); 
 
     if (res.ok) {
         const storiesData = await res.json();
@@ -43,7 +43,7 @@ export const fetchStories = () => async (dispatch) => {
 }
 
 export const fetchStory = (storyId) => async (dispatch) => {
-    const res = await fetch(`/api/stories/${storyId}`)
+    const res = await csrfFetch(`/api/stories/${storyId}`);
 
     if (res.ok) {
         const storyData = await res.json();
@@ -96,7 +96,7 @@ const storiesReducer = (oldState = {}, action) => {
         case RECEIVE_STORY:
             // const story = action.story;
             // newState[story.id] = story;
-            return {...newState, [action.payload.story.id]: action.payload.story}
+            return { ...newState, [action.payload.story.id]: action.payload.story }
             // return newState; 
         case REMOVE_STORY:
             const storyId = action.storyId;

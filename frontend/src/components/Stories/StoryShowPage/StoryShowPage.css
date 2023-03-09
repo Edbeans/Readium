@@ -1,7 +1,3 @@
-*, *:before, *:after {
-    box-sizing: inherit; 
-}
-
 .sp {
     background-color: rgba(50, 57, 68, 1); 
     display: block; 
