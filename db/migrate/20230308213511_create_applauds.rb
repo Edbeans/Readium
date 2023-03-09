@@ -6,7 +6,6 @@ class CreateApplauds < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_index :applauds, [:applauder_id, :story_id], unique: true 
-    add_index :applauds, [:story_id, :applaud_id]
+    add_index :applauds, [:story_id, :applauder_id], unique: true 
   end
 end

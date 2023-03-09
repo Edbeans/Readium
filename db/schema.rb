@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_02_011556) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_08_213511) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applauds", force: :cascade do |t|
+    t.bigint "applauder_id", null: false
+    t.bigint "story_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["applauder_id"], name: "index_applauds_on_applauder_id"
+    t.index ["story_id", "applauder_id"], name: "index_applauds_on_story_id_and_applauder_id", unique: true
+    t.index ["story_id"], name: "index_applauds_on_story_id"
+  end
 
   create_table "stories", force: :cascade do |t|
     t.string "title", null: false
@@ -34,5 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_011556) do
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
 
+  add_foreign_key "applauds", "stories"
+  add_foreign_key "applauds", "users", column: "applauder_id"
   add_foreign_key "stories", "users", column: "author_id"
 end
