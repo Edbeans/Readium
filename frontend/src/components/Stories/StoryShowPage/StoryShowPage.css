@@ -68,7 +68,7 @@
 }
 
 .story-body-container {
-    margin-bottom: 5em; 
+    margin-bottom: 2em; 
 }
 
 .story-body {
@@ -135,6 +135,9 @@
     line-height: 20px; 
 }
 
+.user-interaction-container {
+    margin-bottom: 5em; 
+}
 
 
 

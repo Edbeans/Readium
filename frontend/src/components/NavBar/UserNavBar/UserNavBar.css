@@ -1,5 +1,6 @@
 .user-nav-bar {
     display: flex; 
+    flex: start; 
     justify-content: space-between;
     align-items: center; 
     background-color: rgba(255, 255, 255, 1);
@@ -7,12 +8,12 @@
     border-width: thin;  
 }
 
-.hl-left {
-    display: block;
+.user-logo-link {
+    padding-left: 100px; 
 }
 
-.user-logo-link {
-    padding-left: 240px; 
+.user-nav-right-container {
+    padding-bottom: 5px; 
 }
 
 .user-nav-right {
@@ -20,8 +21,9 @@
     justify-content: space-between;
     align-items: center;
     height: 57px;   
-    padding: 0 24px;
-    padding-right: 5%;
+    /* padding: 0 24px; */
+    /* padding-right: 5%; */
+    padding-bottom: 2px; 
 }
 
 .write-link {

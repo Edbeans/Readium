@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getStory, fetchStory } from "../../../store/stories";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,14 +10,28 @@ function StoryShowPage() {
     const story = useSelector(getStory(storyId));
     // const sessionUser = useSelector(state => state.session.user);
     
+    // const [applauds, setApplauds] = useState(0);
+    // const [isClicked, setIsClicked] = useState(false); 
+
     useEffect(() => {
         dispatch(fetchStory(storyId));
     }, [dispatch, storyId]);
 
-    // const addApplause = () => {
-
+    // const addApplaud = (e) => {
+    //     e.preventDefault();
+    //     setApplauds(story.applauds + 1); 
+    //     setIsClicked(!isClicked); 
     // }
-    
+    // console.log("STORYYYYYY", story); 
+    // let rawdate = story.createdAt; 
+    // console.log("DATE!!!!!!", rawdate); 
+    // const options = {month: 'long', day: 'numeric'};
+    // let date = rawdate.toLocaleDateString("en-US", options); 
+    // let date = rawDate.toLocaleDateString("en-US", options);
+    if (!story) {
+        return null;
+    }
+
     return (
         <>
             <div className='sp'>
@@ -43,9 +57,14 @@ function StoryShowPage() {
                                 </div>
 
                                 {/* add an applauds button  */}
+                                {/* {sessionUser && (
+                                    <div className='user-interaction-container'>
+                                        <button onClick={addApplaud}>Applaud</button>
+                                    </div>
+                                )}
                                 <div>
-                                    <button>Applaud</button>
-                                </div>
+                                    <span>{applauds}</span>
+                                </div> */}
                             </div>
                         </main>
                         {/* USER BIO AND INFORMATION  */}

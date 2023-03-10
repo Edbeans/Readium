@@ -136,8 +136,8 @@
     display: flex; 
     align-items: center; 
     flex-direction: row; 
-    padding-left: 15%; 
-    margin-bottom: 16px; 
+    padding-left: 100px;
+    margin-bottom: 40px; 
     padding-top: 40px;
 }
 
@@ -161,8 +161,8 @@
     flex-direction: row;
     flex-wrap: wrap; 
     justify-content: space-between;  
-    padding-left: 16%; 
-    padding-right: 15%; 
+    padding-left: 100px;
+    padding-right: 100px; 
 }
 
 .ts-grid-container {

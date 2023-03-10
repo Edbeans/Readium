@@ -48,47 +48,48 @@ function UserNavBar({ user }) {
               </div>
             </div>
 
-
-            <div className='user-nav-right'>
-              <div className='write-link'>
-                <NavLink className='write' to='/stories'>
-                  <i className="far fa-edit write-icon"></i>
-                  Write
-                </NavLink>
-              </div>
-
-              <div className='notif-bell-container'>
-                <NotificationsActiveOutlinedIcon className='notif-bell-icon'/>
-              </div>
-            
-              <div className='user-dropdown'>
-                <div className='profile-box' onClick={openMenu}>
-                  <img className='profile-pic' src={profilepic} alt='pfp'/>
-                  <DropDownIcon className='expand-icon' width="12px" height="12px"/>
+            <div className='user-nav-right-container'>
+              <div className='user-nav-right'>
+                <div className='write-link'>
+                  <NavLink className='write' to='/stories'>
+                    <i className="far fa-edit write-icon"></i>
+                    Write
+                  </NavLink>
                 </div>
-                {showMenu && (
-                  <div className='profile-dropdown'>
-                    <ul className='dropdown-content'> 
-                      <div className='dropdown-section'>
-                        <li className='dropdown-list'>
-                            <NavLink className='profile-link' to='/@profile'>Profile</NavLink>
-                        </li>
-                        <li className='dropdown-list'>
-                          <a className='profile-person-link' href='https://github.com/Edbeans'>Github</a>
-                        </li>
-                        <li className='dropdown-list'>
-                        <a className='profile-person-link' href='https://www.linkedin.com/in/ying-edward/'>LinkedIn</a>
-                        </li>
-                      </div>
 
-                      <div className='dropdown-section dropdown-last-section'>
-                        <li className='dropdown-list' onClick={logout} >Sign out</li>
-                        <li className='dropdown-list'>{user.email}</li>
-                      </div>
-
-                    </ul>
+                <div className='notif-bell-container'>
+                  <NotificationsActiveOutlinedIcon className='notif-bell-icon'/>
+                </div>
+              
+                <div className='user-dropdown'>
+                  <div className='profile-box' onClick={openMenu}>
+                    <img className='profile-pic' src={profilepic} alt='pfp'/>
+                    <DropDownIcon className='expand-icon' width="12px" height="12px"/>
                   </div>
-                )}
+                  {showMenu && (
+                    <div className='profile-dropdown'>
+                      <ul className='dropdown-content'> 
+                        <div className='dropdown-section'>
+                          <li className='dropdown-list'>
+                              <NavLink className='profile-link' to='/@profile'>Profile</NavLink>
+                          </li>
+                          <li className='dropdown-list'>
+                            <a className='profile-person-link' href='https://github.com/Edbeans'>Github</a>
+                          </li>
+                          <li className='dropdown-list'>
+                          <a className='profile-person-link' href='https://www.linkedin.com/in/ying-edward/'>LinkedIn</a>
+                          </li>
+                        </div>
+
+                        <div className='dropdown-section dropdown-last-section'>
+                          <li className='dropdown-list' onClick={logout} >Sign out</li>
+                          <li className='dropdown-list'>{user.email}</li>
+                        </div>
+
+                      </ul>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
             
