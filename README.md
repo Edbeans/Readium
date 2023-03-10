@@ -1,24 +1,30 @@
-# README
+# Readium
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Readium live site!](https://readium.onrender.com/)
 
-Things you may want to cover:
+## Background 
 
-* Ruby version
+A fullstack clone of the publication site Medium where you have full control of what you stories you want to post for others to see. Users are able to read the top trending stories on Readium, as well as edit and update stories of their own. 
 
-* System dependencies
+## Technologies Used 
 
-* Configuration
+* React 
+* Redux 
+* Ruby on Rails 
+* BCrypt 
+* PostgreSQL 
 
-* Database creation
+## Features 
+### User Authentication - Login/Signup 
+<img src="./readmeassets/login-signup-demo.gif" alt="text" width="800"/>
+<img src="./readmeassets/login-signup-code.png" alt="text" width="800"/>
 
-* Database initialization
+### Creating and Updating a Story
+<img src="./readmeassets/edit-update-demo.gif" alt="text" width="800"/> 
+<img src="./readmeassets/edit-update-code.png" alt="text" width="800"/>
 
-* How to run the test suite
+## Future Features 
+* Applauds - Users will be able to applaud stories as many times as they would like.
+* Respones - Users will be able to leave responses to stories.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
