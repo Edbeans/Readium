@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :users, only: :create 
     resource :session, only: [:show, :create, :destroy]
     resources :stories, only: [:index, :show, :create, :update, :destroy]
+    resources :responses, only: [:index, :show, :create, :update, :destroy]
     resources :applauds, only: [:index, :show, :create, :destroy]
   end
 

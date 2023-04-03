@@ -1,4 +1,4 @@
-class ApplaudsController < ApplicationController
+class Api::ApplaudsController < ApplicationController
 
     def index 
         @applauds = Applaud.all 
@@ -25,7 +25,7 @@ class ApplaudsController < ApplicationController
         if @applaud && @applaud.destroy
             render json: ["You have unapplauded this story."]
         else
-            render json: @story.full_messages, status: 422 
+            render json: @user.errors.full_messages, status: 422 
         end 
     end
 
