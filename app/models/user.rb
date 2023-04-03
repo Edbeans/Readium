@@ -21,6 +21,11 @@ class User < ApplicationRecord
         class_name: :Story,
         dependent: :destroy
 
+    has_many :responses,
+        foreign_key: :author_id,
+        class_name: :Response,
+        dependent: :destroy 
+
     has_many :applauds,
         foreign_key: :applauder_id,
         class_name: :Applaud,
