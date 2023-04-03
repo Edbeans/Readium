@@ -24,5 +24,5 @@ class Story < ApplicationRecord
     has_many :applauds,
         foreign_key: :story_id,
         class_name: :Applaud,
-        dependent: :destroy 
+        # dependent: :destroy 
 end
