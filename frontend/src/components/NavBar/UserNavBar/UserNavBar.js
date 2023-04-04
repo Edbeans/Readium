@@ -74,10 +74,10 @@ function UserNavBar({ user }) {
                               <NavLink className='profile-link' to='/@profile'>Profile</NavLink>
                           </li>
                           <li className='dropdown-list'>
-                            <a className='profile-person-link' href='https://github.com/Edbeans'>Github</a>
+                            <a className='profile-person-link' href='https://github.com/Edbeans' target='_blank'>Github</a>
                           </li>
                           <li className='dropdown-list'>
-                          <a className='profile-person-link' href='https://www.linkedin.com/in/ying-edward/'>LinkedIn</a>
+                          <a className='profile-person-link' href='https://www.linkedin.com/in/ying-edward/' target='_blank'>LinkedIn</a>
                           </li>
                         </div>
 

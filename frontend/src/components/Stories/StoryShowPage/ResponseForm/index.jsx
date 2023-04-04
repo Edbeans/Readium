@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createResponse } from "../../../../store/responses";
+import './ResponseForm.css'; 
 
 export default function ResponseForm({story}) {
     const dispatch = useDispatch(); 
@@ -25,7 +26,10 @@ export default function ResponseForm({story}) {
         <div className="response-modal">
             <div className="response-box">
                 <form onSubmit={handleSubmit}>
-                    
+                    <input
+                        type='text'
+                        
+                    />
                 </form>
             </div>
         </div>

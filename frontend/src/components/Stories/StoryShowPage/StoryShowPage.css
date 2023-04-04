@@ -1,5 +1,5 @@
 .sp {
-    background-color: rgba(50, 57, 68, 1); 
+    background-color: rgb(255, 255, 255); 
     display: block; 
 }
 
@@ -43,7 +43,7 @@
     font-family: 'helvetica-neue-light';
     font-size: 16px; 
     font-weight: bolder; 
-    color: rgba(246, 246, 248, 1);
+    color: rgb(41, 41, 41, 1);
     letter-spacing: 0; 
     line-height: 52px; 
     max-height: 52px; 
@@ -52,7 +52,7 @@
 .story-date {
     font-family: 'helvetica-neue-light'; 
     font-size: 14px; 
-    color: rgba(200, 202, 208, 1);
+    color: rgb(41, 41, 41, 1);
     line-height: 20px; 
 }
 
@@ -66,7 +66,7 @@
     font-size: 32px;
     font-weight: 700; 
     line-height: 40px; 
-    color: rgba(246, 246, 248, 1);
+    color: rgb(41, 41, 41, 1);
 }
 
 .story-body-container {
@@ -81,7 +81,7 @@
     letter-spacing: -0.003em;
     line-height: 32px; 
     word-break: break-word; 
-    color: rgb(210, 210, 213);
+    color: rgb(41, 41, 41, 1);
 }
 
 /* MAIN BODY LEFT SIDE  */
@@ -92,8 +92,8 @@
     min-width: 368px; 
     max-width: 368px;  
     padding-right: 24px; 
-    background-color: rgba(50, 57, 68, 1);
-    border-left: 1px solid rgba(75, 81, 92, 1);
+    background-color: rgb(255, 255, 255);
+    border-left: 1px solid rgba(242, 242, 242, 1);
     padding-left: clamp(24px, 24px + 100vw - 1080px, 40px);
 }
 
@@ -133,7 +133,7 @@
     font-size: 16px; 
     font-weight: bolder; 
     letter-spacing: 0; 
-    color: rgba(237, 237, 241, 1);
+    color: rgb(41, 41, 41, 1);
     line-height: 20px; 
 }
 

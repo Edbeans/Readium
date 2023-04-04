@@ -1,0 +1,10 @@
+.response-modal {
+    /* position: fixed;  */
+    /* top: 0px;  */
+    /* left: 100%;  */
+    /* transform: translateX(-414px); */
+    /* /* overflow: auto; */
+    width: 414px; 
+    height: 100vh; 
+    left: 100%; 
+}
