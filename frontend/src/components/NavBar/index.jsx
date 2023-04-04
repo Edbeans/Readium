@@ -51,12 +51,16 @@ function NavBar() {
                   <div className='home-link-right'>
                     <span className='hlr'>
                       <div className='hlr-div'>
-                        <a className='personal-link' href='https://github.com/Edbeans' target='_blank'><GitHubIcon/></a>
+                        <a className='personal-link' href='https://github.com/Edbeans' target='_blank' rel='noreferrer'>   
+                          <GitHubIcon/>
+                        </a>
                       </div>
                     </span>
                     <span className='hlr'>
                       <div className='hlr-div'>
-                        <a className='personal-link' href='https://www.linkedin.com/in/ying-edward/' target='_blank'><LinkedInIcon/></a>
+                        <a className='personal-link' href='https://www.linkedin.com/in/ying-edward/' target='_blank' rel='noreferrer'>
+                          <LinkedInIcon/>
+                        </a>
                       </div>
                     </span>
                     <span className='hlr'>
