@@ -4,6 +4,11 @@ class Api::ResponsesController < ApplicationController
         @responses = Response.all
         render :index
     end
+    
+    def show
+        @response = Response.find_by(id: params[:id])
+        render :show
+    end
 
     def create
         @response = Response.new(response_params)
@@ -14,10 +19,6 @@ class Api::ResponsesController < ApplicationController
         end
     end
 
-    def show
-        @response = Response.find_by(id: params[:id])
-        render :show
-    end
 
     def update
         @response = Response.find_by(id: params[:id])

@@ -18,11 +18,11 @@ class Story < ApplicationRecord
     
     has_many :responses,
         foreign_key: :story_id,
-        class_name: :Response
+        class_name: :Response,
         dependent: :destroy 
 
     has_many :applauds,
         foreign_key: :story_id,
         class_name: :Applaud,
-        # dependent: :destroy 
+        dependent: :destroy 
 end

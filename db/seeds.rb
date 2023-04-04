@@ -196,5 +196,13 @@
       author_id: 7 
     )
 
+    100.times do 
+      Response.create!(
+        story_id: Faker::Number.between(from: 1, to: 7),
+        author_id: Faker::Number.between(from: 2, to: 10),
+        body: Faker::Lorem.paragraph(sentence_count: 2)
+      )
+    end
 
+    puts "Seeding done!"
   # end
