@@ -4,6 +4,7 @@ import { getStory, fetchStory } from "../../../store/stories";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal } from "../../../context/Modal";
 import ResponseForm from "./ResponseForm";
+import { timeConversion } from "../../../modules/helperFunctions";
 import "./StoryShowPage.css";
 
 function StoryShowPage() {
@@ -53,7 +54,7 @@ function StoryShowPage() {
                                 <div className='sp-right-container'>
                                     <div className='author-header-container'>
                                         <h1 className='author-name'>{story.author}</h1>
-                                        <h1 className='story-date'>{story.createdAt}</h1>        
+                                        <h1 className='story-date'>{timeConversion(story.createdAt)}</h1>        
                                     </div>
     
                                     

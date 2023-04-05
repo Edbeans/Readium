@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getStories, fetchStories } from "../../store/stories";
 import UserStoryIndexItem from "./UserStoryIndexItem";
 import './UserIndexPage.css';
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 function UserIndexPage() {
     const dispatch = useDispatch();
@@ -27,7 +29,7 @@ function UserIndexPage() {
                         <main className='main-class'>
                             <div className='sp-right-container'>
                                 <div className='user-header-container'>
-                                    <h1 className='user-name'>{sessionUser.fullname}</h1>       
+                                    <h1 className='user-name' data-aos='fade-left' data-aos-duration='2000'>{sessionUser.fullname}</h1>       
                                 </div>
                                 
                                 {chronoUserStories.map(story =>

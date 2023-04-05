@@ -3,7 +3,10 @@ import "./UserStoryIndexItem.css";
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteStory } from '../../../store/stories';
+import { timeConversion } from '../../../modules/helperFunctions';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function UserStoryIndexItem ({story}) {
     const dispatch = useDispatch();
@@ -35,9 +38,9 @@ function UserStoryIndexItem ({story}) {
 
     return (
         <>
-            <div className='user-story-container'>
+            <div className='user-story-container' data-aos='fade-right' data-aos-duration='2000'>
 
-                <h1 className='user-story-date'>{story.createdAt}</h1>        
+                <h1 className='user-story-date'>{timeConversion(story.createdAt)}</h1>        
 
                 <div className='user-story-title-container'>
                     <Link className='user-story-title' to={`/stories/${story.id}`}>

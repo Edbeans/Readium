@@ -1,3 +1,4 @@
+/* ENTIRE MODAL  */
 .response-modal {
     width: 414px; 
     height: 100vh; 
@@ -5,6 +6,7 @@
     overflow: auto; 
 }
 
+/* RESPONSE HEADER  */
 .rpm-container {
     display: flex;
     flex-direction: row; 
@@ -20,4 +22,82 @@
     font-weight: 500; 
     line-height: 24px; 
     letter-spacing: 0; 
+}
+
+/* RESPONSE BOX  */
+.rp-container {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 24px; 
+}
+.response-box {
+    display: flex;
+    flex-direction: column; 
+    border-radius: 4px; 
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 8px;
+    height: 225px; 
+    width: 360px;
+}
+
+.rb-username {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 400; 
+    line-height: 20px; 
+    color: rgba(41, 41, 41, 1);
+    padding: 14px;
+}
+
+.rb-username-pfp {
+    margin-right: 1rem; 
+}
+
+.response-text-form {
+    padding: 14px;
+}
+.response-text-box, .response-text-box:focus {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px; 
+    color: rgba(41, 41, 41, 1);
+    position: relative; 
+    height: 100px; 
+    width: 322px;
+    resize: none; 
+    border-style: none; 
+    outline: none; 
+}
+
+.response-text-box::placeholder {
+    color: #b3b3b1;
+}
+
+.resp-btn-div {
+    margin-left: 14.5rem; 
+}
+
+.respond-btn {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #1a8917; 
+    border-radius: 40px; 
+    border: none; 
+    color: white;
+    cursor: pointer;
+    width: 100px;
+    height: 35px;
+    text-align: center; 
+    transition: .5s;
+}
+
+.respond-btn:hover {
+    background-color: #4ec94a;
+    color: white;
+}
+
+.resp-border-line {
+    margin-top: 2rem;
+    margin-bottom: 2rem; 
+    border-bottom: 1px solid rgb(230, 230, 230);
 }

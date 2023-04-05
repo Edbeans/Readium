@@ -32,12 +32,12 @@ function LandingPage() {
                             <div className='banner-header-right'>
                                 <div className='banner-header-right1'>
                                     <div className='banner-header-quote'>
-                                        <h2 className='bh-quote'>Stay curious.</h2>
+                                        <h2 className='bh-quote' data-aos='fade-right' data-aos-duration='2000'>Stay curious.</h2>
                                     </div>
 
                                     <div className='banner-description'>
                                         <span className='bd-span'>
-                                            <h3 className='bd-quote'>
+                                            <h3 className='bd-quote' data-aos='fade-left' data-aos-duration='2000'>
                                                 Discover stories, thinking, and expertise from writers on any topic.
                                             </h3>
                                         </span>
@@ -45,7 +45,7 @@ function LandingPage() {
                                     
                                     <div className='banner-start-reading-container'>
                                         <span>
-                                            <button className='bsr-btn'>
+                                            <button className='bsr-btn' data-aos='fade-in' data-aos-duration='2000'>
                                                 <Link className='bsr-btn-link' to='/stories/1'>Start reading</Link>
                                             </button>
                                         </span>
