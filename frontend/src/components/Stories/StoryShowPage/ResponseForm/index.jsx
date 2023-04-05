@@ -69,6 +69,8 @@ export default function ResponseForm({story}) {
                     {/* RESPONSES  */}
                     <div>
                         {storyResponses.map((response) => <ResponseIndexItem key={response.id} response={response}/>)}
+                        
+                            
                     </div>
     
                 </div>

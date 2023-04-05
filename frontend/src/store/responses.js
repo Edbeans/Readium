@@ -1,19 +1,23 @@
 import csrfFetch from './csrf';
 
-export const SET_RESPONSE = 'response/SET_RESPONSE';
-export const SET_RESPONSES = 'response/SET_RESPONSE';
-export const REMOVE_RESPONSE = 'response/REMOVE_RESPONSE';
+// export const SET_RESPONSE = 'response/SET_RESPONSE';
+// export const SET_RESPONSES = 'response/SET_RESPONSE';
+// export const REMOVE_RESPONSE = 'response/REMOVE_RESPONSE';
+const RECEIVE_RESPONSES = 'RECEIVE_RESPONSES';
+const RECEIVE_RESPONSE = 'RECEIVE_RESPONSE';
+const REMOVE_RESPONSE = 'REMOVE_RESPONSE'; 
 
-const setResponse = (payload) => {
+
+const receiveResponse = (payload) => {
     return {
-        type: SET_RESPONSE,
+        type: RECEIVE_RESPONSE,
         payload 
     }
 }
 
-const setResponses = (responses) => {
+const receiveResponses = (responses) => {
     return {
-        type: SET_RESPONSES,
+        type: RECEIVE_RESPONSES,
         responses
     }
 }
@@ -38,7 +42,7 @@ export const fetchResponses = () => async(dispatch) => {
 
     if (res.ok) {
         const responses = await res.json(); 
-        dispatch(setResponses(responses)); 
+        dispatch(receiveResponses(responses)); 
     }
 }
 
@@ -47,7 +51,7 @@ export const fetchResponse = (responseId) => async(dispatch) => {
 
     if (res.ok) {
         const response = await res.json();
-        dispatch(setResponse(response)); 
+        dispatch(receiveResponse(response)); 
     }
 }
 
@@ -62,7 +66,7 @@ export const createResponse = (response) => async(dispatch) => {
 
     if (res.ok) {
         const newResponse = await res.json(); 
-        dispatch(setResponse(newResponse)); 
+        dispatch(receiveResponse(newResponse)); 
     }
 }
 
@@ -75,7 +79,7 @@ export const updateResponse = (response) => async(dispatch) => {
 
     if (res.ok) {
         const updatedResponse = await res.json();
-        dispatch(setResponse(updatedResponse)); 
+        dispatch(receiveResponse(updatedResponse)); 
     }
 }
 
@@ -93,14 +97,16 @@ const responsesReducer = (oldState = {}, action) => {
     const newState = {...oldState}
 
     switch (action.type) {
-        case SET_RESPONSES:
+        case RECEIVE_RESPONSES:
             return action.responses;
-        case SET_RESPONSE: 
-            const response = action.payload.response;
-            newState[response.id] = response;
-            return newState;
+        case RECEIVE_RESPONSE: 
+            // const response = action.payload.response;
+            // newState[response.id] = response;
+            // return newState;
+            return {...newState, [action.payload.response.id]: action.payload.response}
         case REMOVE_RESPONSE:
-            delete newState[action.responseId];
+            const responseId = action.responseId;
+            delete newState[responseId];
             return newState;
         default:
             return oldState; 
