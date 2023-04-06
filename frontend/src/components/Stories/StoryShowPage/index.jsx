@@ -1,36 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getStory, fetchStory } from "../../../store/stories";
+// import { getResponses, fetchResponse } from "../../../store/responses";
+import { createApplaud } from "../../../store/applauds";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal } from "../../../context/Modal";
 import ResponseForm from "./ResponseForm";
 import { timeConversion } from "../../../modules/helperFunctions";
+import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
 import "./StoryShowPage.css";
 
 function StoryShowPage() {
     const dispatch = useDispatch();
     const { storyId } = useParams();
+    // const responses = useSelector(getResponses);
     const story = useSelector(getStory(storyId));
+    // console.log("STORY", story);
     const sessionUser = useSelector(state => state.session.user);
     
-    // const [applauds, setApplauds] = useState(0);
-    // const [isClicked, setIsClicked] = useState(false); 
+    // const [applaud, setApplaud] = useState('');
+    
 
     useEffect(() => {
+        // dispatch(fetchResponse(story.responses));
         dispatch(fetchStory(storyId));
     }, [dispatch, storyId]);
 
-    // const addApplaud = (e) => {
-    //     e.preventDefault();
-    //     setApplauds(story.applauds + 1); 
-    //     setIsClicked(!isClicked); 
-    // }
-    // console.log("STORYYYYYY", story); 
-    // let rawdate = story.createdAt; 
-    // console.log("DATE!!!!!!", rawdate); 
-    // const options = {month: 'long', day: 'numeric'};
-    // let date = rawdate.toLocaleDateString("en-US", options); 
-    // let date = rawDate.toLocaleDateString("en-US", options);
+    const addApplaud = async(e) => {
+        e.preventDefault();
+        const applaudData = {
+            story_id: story.id,
+            applauder_id: sessionUser.id
+        }
+        dispatch(createApplaud(applaudData));
+    }
 
     const [responseModal, setResponseModal] = useState(false);
 
@@ -59,18 +62,26 @@ function StoryShowPage() {
     
                                     
                                     <div className='story-title-container'>
-                                        <h1 className='story-title'>{story.title}</h1>
+                                        <h1 className='story-title' data-aos='fade-left' data-aos-duration='1500'>{story.title}</h1>
                                     </div>
     
                                     <div className='story-body-container'>
-                                        <p className='story-body'>{story.body}</p>
+                                        <p className='story-body' data-aos='fade-right' data-aos-duration='1500'>{story.body}</p>
                                     </div>
     
                                     
                                     {sessionUser && (
-                                        <div>
-                                            <button onClick={openResponseModal}>Response</button>
-                                        </div>
+                                        <>
+                                            <div className='spr-container' onClick={openResponseModal}>
+                                                    <ModeCommentOutlinedIcon className='r-btn'/>
+                                                    {/* <div className='rlength'>{story.responses.length}</div> */}
+                                                    <div className='rlength'>Respond</div>
+                                            </div>
+                                            {/* <button
+                                                onClick={addApplaud}>
+                                                Applaud
+                                            </button> */}
+                                        </>
                                     )}
 
                                     {responseModal && (
@@ -81,15 +92,6 @@ function StoryShowPage() {
                                         </Modal>
                                     )}
     
-                                    {/* add an applauds button  */}
-                                    {/* {sessionUser && (
-                                        <div className='user-interaction-container'>
-                                            <button onClick={addApplaud}>Applaud</button>
-                                        </div>
-                                    )}
-                                    <div>
-                                        <span>{applauds}</span>
-                                    </div> */}
                                 </div>
                             </main>
                             {/* USER BIO AND INFORMATION  */}

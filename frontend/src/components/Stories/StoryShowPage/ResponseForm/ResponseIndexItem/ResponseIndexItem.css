@@ -9,7 +9,14 @@
 .rii-container {
     display: flex;
     flex-direction: row; 
+    justify-content: space-between;
     margin-bottom: 10px; 
+}
+
+.rii-container-within {
+    display: flex; 
+    flex-direction: row; 
+
 }
 
 
@@ -34,4 +41,34 @@
     line-height: 24px; 
     white-space: pre-wrap;
     word-break: break-word;
+}
+
+.red-option {
+    display: flex; 
+    flex-direction: row; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px; 
+    font-weight: lighter; 
+    height: 18px; 
+}
+
+.red-option-e {
+    margin-right: 5px; 
+    cursor: pointer; 
+    color: rgba(41, 41, 41, 1);
+    transition: .5s; 
+}
+
+.red-option-e:hover {
+    color: rgb(25, 133, 143);
+}
+
+.red-option-d {
+    cursor: pointer;
+    color: rgb(190, 44, 44); 
+    transition: .5s;
+}
+
+.red-option-d:hover {
+    color: rgb(234, 20, 20);
 }

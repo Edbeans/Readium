@@ -4,6 +4,13 @@ const RECEIVE_APPLAUDS = 'RECEIVE_APPLAUDS';
 const RECEIVE_APPLAUD = 'RECEIVE_APPLAUD'; 
 const REMOVE_APPLAUD ='REMOVE_APPLAUD'; 
 
+const receiveApplaud = (payload) => {
+    return {
+        type: RECEIVE_APPLAUD,
+        payload 
+    }
+}
+
 const receiveApplauds = (applauds) => {
     return {
         type: RECEIVE_APPLAUDS,
@@ -11,12 +18,6 @@ const receiveApplauds = (applauds) => {
     }
 }
 
-const receiveApplaud = (payload) => {
-    return {
-        type: RECEIVE_APPLAUD,
-        payload 
-    }
-}
 
 const removeApplaud = (applaudId) => {
     return {
@@ -59,33 +60,33 @@ export const createApplaud = (applaud) => async (dispatch) => {
     });
 
     if (res.ok) {
-        const newApplaud = res.json();
+        const newApplaud = await res.json();
         dispatch(receiveApplaud(newApplaud));
     }
 }
 
-export const deleteApplaud = (applaudId) => async (dispatch) => {
-    const res = await csrfFetch(`/api/applauds/${applaudId}`,{
-        method: 'DELETE'
-    });
+// export const deleteApplaud = (applaudId) => async (dispatch) => {
+//     const res = await csrfFetch(`/api/applauds/${applaudId}`,{
+//         method: 'DELETE'
+//     });
 
-    if (res.ok) {
-        dispatch(removeApplaud(applaudId)); 
-    }
-}
+//     if (res.ok) {
+//         dispatch(removeApplaud(applaudId)); 
+//     }
+// }
 
 const applaudsReducer = (oldState = {}, action) => {
-    let newState = {...oldState}
+    const newState = {...oldState}
 
     switch (action.type) {
         case RECEIVE_APPLAUDS:
             return action.applauds;
         case RECEIVE_APPLAUD:
-            return { ...newState, [action.payload.applaud.id]: action.payload }
-        case REMOVE_APPLAUD:
-            const applaudId = action.applaudId; 
-            delete newState[applaudId];
-            return newState;
+            return { ...newState, [action.payload.applaud.id]: action.payload.applaud }
+        // case REMOVE_APPLAUD:
+        //     const applaudId = action.applaudId; 
+        //     delete newState[applaudId];
+        //     return newState;
         default:
             return oldState;
     }

@@ -12,11 +12,10 @@ class Api::ApplaudsController < ApplicationController
 
     def create 
         @applaud = Applaud.new(applaud_params)
-
         if @applaud.save 
-            render json: [" You applauded this story!"]
+            render :show
         else
-            render json: ["Could not applaud story."]
+            render json: ['Already applauded!']
         end
     end
 
