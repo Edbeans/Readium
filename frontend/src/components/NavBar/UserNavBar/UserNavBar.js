@@ -6,6 +6,7 @@ import logo from '../../../assets/hp-icon.png';
 import profilepic from '../../../assets/default-profile-icon.png'
 import DropDownIcon from '@mui/icons-material/ExpandMoreSharp';
 import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
+import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import "./UserNavBar.css";
 
 function UserNavBar({ user }) {
@@ -52,14 +53,15 @@ function UserNavBar({ user }) {
               <div className='user-nav-right'>
                 <div className='write-link'>
                   <NavLink className='write' to='/stories'>
-                    <i className="far fa-edit write-icon"></i>
-                    Write
+                    <CreateOutlinedIcon />
+                    {/* Create a Story */}
+                    {/* <i className="far fa-edit write-icon">Write</i> */}
                   </NavLink>
                 </div>
 
-                <div className='notif-bell-container'>
+                {/* <div className='notif-bell-container'>
                   <NotificationsActiveOutlinedIcon className='notif-bell-icon'/>
-                </div>
+                </div> */}
               
                 <div className='user-dropdown'>
                   <div className='profile-box' onClick={openMenu}>

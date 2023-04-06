@@ -28,6 +28,7 @@ export default function ResponseForm({story}) {
                 body: body
             }
             dispatch(createResponse(responseData)); 
+            setBody('');
         }
     }
     if (!responses) {
