@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+// import { fetchUser } from "../../store/users";
 import { getStories, fetchStories } from "../../store/stories";
 import UserStoryIndexItem from "./UserStoryIndexItem";
 import profilepic from '../../assets/default-profile-icon.png'
@@ -9,14 +11,18 @@ import 'aos/dist/aos.css';
 
 function UserIndexPage() {
     const dispatch = useDispatch();
+    // const { userId } = useParams(); 
+    // const user = useSelector(state => state.users); 
     const sessionUser = useSelector(state => state.session.user);
     
     useEffect(() => {
+        // dispatch(fetchUser(userId));
         dispatch(fetchStories());
     }, [dispatch]);
 
     let allStories = useSelector(getStories); 
-    let userStories = allStories.filter(story => story.authorId === sessionUser.id) // [{}]
+    let userStories = allStories.filter(story => story.authorId === sessionUser.id) 
+    // let userStories = allStories.filter(story => story.authorId === user.id);
     let chronoUserStories = userStories.slice().reverse();
     return (
         <>
@@ -47,7 +53,9 @@ function UserIndexPage() {
                                             <div className='abc-2'>
                                                 <img className='user-index-pic' src={profilepic} alt='pfp'/>
                                                 <h2 className='user-profile-name'>{sessionUser.fullname}</h2>
+                                                {/* <h2 className='user-profile-name'>{user.fullname}</h2> */}
                                                 <p className='user-bio'>{sessionUser.bio}</p>
+                                                {/* <p className='user-bio'>{user.bio}</p> */}
                                                 {sessionUser && (
                                                     <div className='uepn-container'>
                                                         <h2 className='uepn-text'>Edit Profile</h2>

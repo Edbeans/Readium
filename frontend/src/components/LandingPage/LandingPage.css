@@ -111,15 +111,16 @@
 .bsr-btn-link, .bsr-btn-link:visited {
     text-decoration: none; 
     color: rgba(255, 255, 255, 1); 
+    transition: .5s;
 }
 
 .bsr-btn-link:hover {
     cursor: pointer;
-    color: black; 
+    color: rgb(113, 112, 112); 
 }
 
 .bsr-btn:hover {
-    background-color: rgba(230, 230, 230, 1);
+    /* background-color: rgba(230, 230, 230, 1); */
     color: black; 
 }
 
