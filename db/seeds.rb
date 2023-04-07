@@ -36,6 +36,7 @@
       User.create!({
         fullname: Faker::Internet.unique.username(specifier: 4..8).capitalize,
         email: Faker::Internet.unique.email,
+        bio: Faker::Lorem.paragraph(sentence_count: 1),
         password: 'password'
       }) 
     end
