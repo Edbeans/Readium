@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getStory, fetchStory } from "../../../store/stories";
 // import { getResponses, fetchResponse } from "../../../store/responses";
+import profilepic from '../../../assets/default-profile-icon.png'
 import { createApplaud } from "../../../store/applauds";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal } from "../../../context/Modal";
@@ -101,7 +102,8 @@ function StoryShowPage() {
                                         <div className='author-bio-content'>
                                             <div className='abc-1'>
                                                 <div className='abc-2'>
-                                                    <h2 className='profile-name'>{story.author}</h2>
+                                                    <img className='user-index-pic' src={profilepic} alt='pfp'/>
+                                                    <h2 className='user-profile-name'>{story.author}</h2>
                                                 </div>
                                             </div>
                                         </div>

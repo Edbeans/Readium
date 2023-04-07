@@ -21,13 +21,15 @@
     # Create one user with an easy to remember username, email, and password:
     User.create!(
       fullname: 'Demo-Lition',
-      email: 'demo@user.io', 
+      email: 'demo@user.io',
+      bio: Faker::Lorem.paragraph(sentence_count: 1), 
       password: 'password'
     )
 
     User.create!(
       fullname: 'Guest',
       email: 'guest@guest.io',
+      bio: Faker::Lorem.paragraph(sentence_count: 1),
       password: 'password'
     )
   

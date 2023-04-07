@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getStories, fetchStories } from "../../store/stories";
 import UserStoryIndexItem from "./UserStoryIndexItem";
+import profilepic from '../../assets/default-profile-icon.png'
 import './UserIndexPage.css';
 import AOS from "aos";
 import 'aos/dist/aos.css';
@@ -13,9 +14,8 @@ function UserIndexPage() {
     useEffect(() => {
         dispatch(fetchStories());
     }, [dispatch]);
-    
-    let allStories = useSelector(getStories); 
 
+    let allStories = useSelector(getStories); 
     let userStories = allStories.filter(story => story.authorId === sessionUser.id) // [{}]
     let chronoUserStories = userStories.slice().reverse();
     return (
@@ -45,8 +45,17 @@ function UserIndexPage() {
                                     <div className='author-bio-content'>
                                         <div className='abc-1'>
                                             <div className='abc-2'>
-                                                <h2 className='profile-name'>{sessionUser.fullname}</h2>
+                                                <img className='user-index-pic' src={profilepic} alt='pfp'/>
+                                                <h2 className='user-profile-name'>{sessionUser.fullname}</h2>
+                                                <p className='user-bio'>{sessionUser.bio}</p>
+                                                {sessionUser && (
+                                                    <div className='uepn-container'>
+                                                        <h2 className='uepn-text'>Edit Profile</h2>
+                                                    </div>
+                                                )}
                                             </div>
+
+                                            {/* Add more stories from Medium here  */}
                                         </div>
                                     </div>
                                 </div>

@@ -1,11 +1,13 @@
 import { legacy_createStore, combineReducers, applyMiddleware, compose } from "redux"; 
 import thunk from "redux-thunk"; 
+import usersReducer from "./users";
 import sessionReducer from './session';
 import storiesReducer from './stories'; 
 import applaudsReducer from "./applauds";
 import responsesReducer from "./responses";
 
 export const rootReducer = combineReducers({
+    users: usersReducer, 
     session: sessionReducer,
     stories: storiesReducer,
     applauds: applaudsReducer,
