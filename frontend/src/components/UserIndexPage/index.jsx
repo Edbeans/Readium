@@ -1,29 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // import { fetchUser } from "../../store/users";
 import { getStories, fetchStories } from "../../store/stories";
 import UserStoryIndexItem from "./UserStoryIndexItem";
 import profilepic from '../../assets/default-profile-icon.png'
+import EditUserModal from "./EditUserModal";
+import { Modal } from "../../context/Modal";
 import './UserIndexPage.css';
 import AOS from "aos";
 import 'aos/dist/aos.css';
 
 function UserIndexPage() {
     const dispatch = useDispatch();
-    // const { userId } = useParams(); 
-    // const user = useSelector(state => state.users); 
     const sessionUser = useSelector(state => state.session.user);
     
     useEffect(() => {
-        // dispatch(fetchUser(userId));
         dispatch(fetchStories());
     }, [dispatch]);
 
     let allStories = useSelector(getStories); 
     let userStories = allStories.filter(story => story.authorId === sessionUser.id) 
-    // let userStories = allStories.filter(story => story.authorId === user.id);
     let chronoUserStories = userStories.slice().reverse();
+
+    const [editModal, setEditModal] = useState(false); 
+
+    const handleEditClick = () => {
+        setEditModal(true);
+    };
+    
     return (
         <>
             <div className='sp'>
@@ -58,9 +63,11 @@ function UserIndexPage() {
                                                 {/* <p className='user-bio'>{user.bio}</p> */}
                                                 {sessionUser && (
                                                     <div className='uepn-container'>
-                                                        <h2 className='uepn-text'>Edit Profile</h2>
+                                                        <h2 className='uepn-text' onClick={handleEditClick}>Edit Profile</h2>
                                                     </div>
                                                 )}
+
+
                                             </div>
 
                                             {/* Add more stories from Medium here  */}
@@ -72,7 +79,16 @@ function UserIndexPage() {
                     </div>
                 </div>
 
+                {editModal && (
+                    <Modal onClose={() => setEditModal(false)}>
+                    <EditUserModal
+                        sessionUser = {sessionUser}
+                    />
+                </Modal>
+                )}
+
             </div>
+
         </>
     )
 }
