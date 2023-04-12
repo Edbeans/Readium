@@ -25,11 +25,11 @@ A fullstack clone of the publication site Medium where you have full control of 
 
 ## Responding to a story
 <img src="./readmeassets/respondtostory.gif" alt="text" width="800"/>
-<img src="./readmeassets/respons-code.jpg" alt="text" width="800"/>
+<img src="./readmeassets/response-code.jpg" alt="text" width="800"/>
 
 ## Applauding a story 
 <img src="./readmeassets/applaud-to-story.gif" alt="text" width="800"/>
-<img src="./readmeassets/applaud-to-story-code.pngf" alt="text" width="800"/>
+<img src="./readmeassets/applaud-to-story-code.png" alt="text" width="800"/>
 
 
 ## Future Features 
