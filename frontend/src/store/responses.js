@@ -1,8 +1,5 @@
 import csrfFetch from './csrf';
 
-// export const SET_RESPONSE = 'response/SET_RESPONSE';
-// export const SET_RESPONSES = 'response/SET_RESPONSE';
-// export const REMOVE_RESPONSE = 'response/REMOVE_RESPONSE';
 const RECEIVE_RESPONSES = 'RECEIVE_RESPONSES';
 const RECEIVE_RESPONSE = 'RECEIVE_RESPONSE';
 const REMOVE_RESPONSE = 'REMOVE_RESPONSE'; 

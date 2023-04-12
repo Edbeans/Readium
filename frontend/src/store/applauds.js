@@ -65,15 +65,15 @@ export const createApplaud = (applaud) => async (dispatch) => {
     }
 }
 
-// export const deleteApplaud = (applaudId) => async (dispatch) => {
-//     const res = await csrfFetch(`/api/applauds/${applaudId}`,{
-//         method: 'DELETE'
-//     });
+export const deleteApplaud = (applaudId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/applauds/${applaudId}`,{
+        method: 'DELETE'
+    });
 
-//     if (res.ok) {
-//         dispatch(removeApplaud(applaudId)); 
-//     }
-// }
+    if (res.ok) {
+        dispatch(removeApplaud(applaudId)); 
+    }
+}
 
 const applaudsReducer = (oldState = {}, action) => {
     const newState = {...oldState}
@@ -83,10 +83,10 @@ const applaudsReducer = (oldState = {}, action) => {
             return action.applauds;
         case RECEIVE_APPLAUD:
             return { ...newState, [action.payload.applaud.id]: action.payload.applaud }
-        // case REMOVE_APPLAUD:
-        //     const applaudId = action.applaudId; 
-        //     delete newState[applaudId];
-        //     return newState;
+        case REMOVE_APPLAUD:
+            const applaudId = action.applaudId; 
+            delete newState[applaudId];
+            return newState;
         default:
             return oldState;
     }

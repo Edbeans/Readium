@@ -9,15 +9,15 @@ import { Modal } from "../../../context/Modal";
 import ResponseForm from "./ResponseForm";
 import { timeConversion } from "../../../modules/helperFunctions";
 import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
+import SignLanguageIcon from '@mui/icons-material/SignLanguage';
 import "./StoryShowPage.css";
-import axios from "axios";
+// import axios from "axios";
 
 function StoryShowPage() {
     const dispatch = useDispatch();
     const { storyId } = useParams();
     // const responses = useSelector(getResponses);
     const story = useSelector(getStory(storyId));
-    // console.log("STORY", story);
     const sessionUser = useSelector(state => state.session.user);
     
     // const [applaud, setApplaud] = useState('');
@@ -30,17 +30,23 @@ function StoryShowPage() {
     
 
     useEffect(() => {
-        // dispatch(fetchResponse(story.responses));
+        // dispatch(fetchResponse(responses));
         dispatch(fetchStory(storyId));
     }, [dispatch, storyId]);
 
-    const handleApplaud = async(e) => {
-        e.preventDefault();
-        const applaudData = {
-            story_id: story.id,
-            applauder_id: sessionUser.id
-        }
-        dispatch(createApplaud(applaudData));
+    // const handleApplaud = (e) => {
+    //     e.preventDefault();
+    //     const applaudData = {
+    //         story_id: story.id,
+    //         applauder_id: sessionUser.id
+    //     }
+    //     dispatch(createApplaud(applaudData));
+    // }
+
+    const [applause, setApplause] = useState(0); 
+
+    const incrementApplause = () => {
+        setApplause(applause + 1); 
     }
 
     const [responseModal, setResponseModal] = useState(false);
@@ -86,15 +92,12 @@ function StoryShowPage() {
                                                     <ModeCommentOutlinedIcon className='r-btn'/>
                                                     {/* <div className='rlength'>{story.responses.length}</div> */}
                                                     <div className='rlength'>Respond</div>
-
                                                 </div>
 
-                                                <div>
-                                                    <button
-                                                        className='applaud-btn'
-                                                        onClick={handleApplaud}>
-                                                        Applaud
-                                                    </button>
+                                                <div className='spr-container' onClick={incrementApplause}>
+                                                    {/* <ModeCommentOutlinedIcon className='r-btn'/> */}
+                                                    <SignLanguageIcon className='r-btn'/>
+                                                    <div className='rlength'>{applause}</div>
                                                 </div>
 
                                             </div>                
