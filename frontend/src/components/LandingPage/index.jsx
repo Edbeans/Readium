@@ -13,6 +13,7 @@ function LandingPage() {
     const stories = useSelector(getStories); 
     const trendingStories = stories.slice(0, 6); 
     const nonTrendingStories = stories.slice(6);
+    // console.log('STORY', trendingStories);
 
     useEffect(() => {
         dispatch(fetchStories());

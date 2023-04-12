@@ -49,7 +49,7 @@ export default function ResponseForm({story}) {
                                 <img className='profile-pic rb-username-pfp' src={profilepic} alt='pfp'/>
                                 <h3>{sessionUser.fullname}</h3>
                             </div>
-    
+                            
                             <form className='response-text-form' onSubmit={handleSubmit}>
                                 <textarea
                                     className='response-text-box'

@@ -20,11 +20,19 @@ A fullstack clone of the publication site Medium where you have full control of 
 <img src="./readmeassets/login-signup-code.png" alt="text" width="800"/>
 
 ### Creating and Updating a Story
-<img src="./readmeassets/edit-update-demo.gif" alt="text" width="800"/> 
+<img src="./readmeassets/create-update-demo.gif" alt="text" width="800"/> 
 <img src="./readmeassets/edit-update-code.png" alt="text" width="800"/>
 
+## Responding to a story
+<img src="./readmeassets/respondtostory.gif" alt="text" width="800"/>
+<img src="./readmeassets/respons-code.jpg" alt="text" width="800"/>
+
+## Applauding a story 
+<img src="./readmeassets/applaud-to-story.gif" alt="text" width="800"/>
+<img src="./readmeassets/applaud-to-story-code.pngf" alt="text" width="800"/>
+
+
 ## Future Features 
-* Applauds - Users will be able to applaud stories as many times as they would like.
-* Respones - Users will be able to leave responses to stories.
+* Editing User information - Users will be able to change their profile names!
 
 

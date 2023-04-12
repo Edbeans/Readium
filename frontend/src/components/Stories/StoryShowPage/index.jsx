@@ -15,6 +15,7 @@ function StoryShowPage() {
     const dispatch = useDispatch();
     const { storyId } = useParams();
     const story = useSelector(getStory(storyId));
+    console.log("STORY", story);
     const sessionUser = useSelector(state => state.session.user);
 
     useEffect(() => {
