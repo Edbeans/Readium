@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getStory, fetchStory } from "../../../store/stories";
-// import { getResponses, fetchResponse } from "../../../store/responses";
 import profilepic from '../../../assets/default-profile-icon.png'
-import { createApplaud } from "../../../store/applauds";
+// import { createApplaud } from "../../../store/applauds";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal } from "../../../context/Modal";
 import ResponseForm from "./ResponseForm";
@@ -11,26 +10,14 @@ import { timeConversion } from "../../../modules/helperFunctions";
 import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
 import SignLanguageIcon from '@mui/icons-material/SignLanguage';
 import "./StoryShowPage.css";
-// import axios from "axios";
 
 function StoryShowPage() {
     const dispatch = useDispatch();
     const { storyId } = useParams();
-    // const responses = useSelector(getResponses);
     const story = useSelector(getStory(storyId));
     const sessionUser = useSelector(state => state.session.user);
-    
-    // const [applaud, setApplaud] = useState('');
-    // const [applause, setApplause] = useState(applauseCount); 
-
-    // const handleApplause = async() => {
-    //     const res = await axios.post(`/api/stories/${storyId}/applauds`);
-    //     setApplause(res.data.applauseCount);
-    // }
-    
 
     useEffect(() => {
-        // dispatch(fetchResponse(responses));
         dispatch(fetchStory(storyId));
     }, [dispatch, storyId]);
 
@@ -45,7 +32,16 @@ function StoryShowPage() {
 
     const [applause, setApplause] = useState(0); 
 
-    const incrementApplause = () => {
+    useEffect(() => {
+        setApplause(JSON.parse(window.sessionStorage.getItem("applause")));
+    }, []);
+
+    useEffect(() => {
+        window.sessionStorage.setItem("applause", applause); 
+    }, [applause]);
+
+    const incrementApplause = (e) => {
+        e.preventDefault();
         setApplause(applause + 1); 
     }
 
