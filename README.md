@@ -17,7 +17,7 @@ A fullstack clone of the publication site Medium where you have full control of 
 ## Features 
 ### User Authentication - Login/Signup 
 <img src="./readmeassets/login-signup-demo.gif" alt="text" width="800"/>
-<img src="./readmeassets/login-signup-code.png" alt="text" width="800"/>
+<img src="./readmeassets/login-signup-code.png" alt="text" width="400"/>
 
 ### Creating and Updating a Story
 <img src="./readmeassets/create-update-demo.gif" alt="text" width="800"/> 
@@ -29,7 +29,7 @@ A fullstack clone of the publication site Medium where you have full control of 
 
 ## Applauding a story 
 <img src="./readmeassets/applaud-to-story.gif" alt="text" width="800"/>
-<img src="./readmeassets/applaud-to-story-code.png" alt="text" width="800"/>
+<img src="./readmeassets/applaud-to-story-code.png" alt="text" width="400"/>
 
 
 ## Future Features 
