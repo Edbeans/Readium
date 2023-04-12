@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { fetchUser } from "../../store/users";
 import { getStories, fetchStories } from "../../store/stories";
 import UserStoryIndexItem from "./UserStoryIndexItem";
+import MoreUserStoryIndexItem from "./MoreUserStoryIndexItem";
 import profilepic from '../../assets/default-profile-icon.png'
 import EditUserModal from "./EditUserModal";
 import { Modal } from "../../context/Modal";
@@ -20,7 +21,9 @@ function UserIndexPage() {
     }, [dispatch]);
 
     let allStories = useSelector(getStories); 
-    let userStories = allStories.filter(story => story.authorId === sessionUser.id) 
+    let notUserStories = allStories.filter(story => story.authorId !== sessionUser.id);
+    let notUserStoriesSliced = notUserStories.slice(0, 4); 
+    let userStories = allStories.filter(story => story.authorId === sessionUser.id); 
     let chronoUserStories = userStories.slice().reverse();
 
     const [editModal, setEditModal] = useState(false); 
@@ -71,6 +74,12 @@ function UserIndexPage() {
                                             </div>
 
                                             {/* Add more stories from Medium here  */}
+                                            <h3 className='more-header'>More from Readium</h3>
+                                            <div className='more-sep'></div>
+
+                                            {notUserStoriesSliced.map(story => 
+                                                <MoreUserStoryIndexItem key={story.id} story={story}/>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
