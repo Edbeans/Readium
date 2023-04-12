@@ -35,8 +35,10 @@ export default function EditUserModal({sessionUser}) {
                 />
                 <button type='submit'>Edit details</button>
             </form> */}
-            <div>
-                Feature is currently a work in progress! Thank you for your patience.
+            <div className='ep'>
+                Feature is currently a work in progress! 
+                <br/>
+                Thank you for your patience.
             </div>
         </>
     )

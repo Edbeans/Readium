@@ -10,6 +10,7 @@ import ResponseForm from "./ResponseForm";
 import { timeConversion } from "../../../modules/helperFunctions";
 import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
 import "./StoryShowPage.css";
+import axios from "axios";
 
 function StoryShowPage() {
     const dispatch = useDispatch();
@@ -20,6 +21,12 @@ function StoryShowPage() {
     const sessionUser = useSelector(state => state.session.user);
     
     // const [applaud, setApplaud] = useState('');
+    // const [applause, setApplause] = useState(applauseCount); 
+
+    // const handleApplause = async() => {
+    //     const res = await axios.post(`/api/stories/${storyId}/applauds`);
+    //     setApplause(res.data.applauseCount);
+    // }
     
 
     useEffect(() => {
@@ -27,7 +34,7 @@ function StoryShowPage() {
         dispatch(fetchStory(storyId));
     }, [dispatch, storyId]);
 
-    const addApplaud = async(e) => {
+    const handleApplaud = async(e) => {
         e.preventDefault();
         const applaudData = {
             story_id: story.id,
@@ -73,15 +80,24 @@ function StoryShowPage() {
                                     
                                     {sessionUser && (
                                         <>
-                                            <div className='spr-container' onClick={openResponseModal}>
+                                            <div className='spr-and-spa'>
+                                                
+                                                <div className='spr-container' onClick={openResponseModal}>
                                                     <ModeCommentOutlinedIcon className='r-btn'/>
                                                     {/* <div className='rlength'>{story.responses.length}</div> */}
                                                     <div className='rlength'>Respond</div>
-                                            </div>
-                                            {/* <button
-                                                onClick={addApplaud}>
-                                                Applaud
-                                            </button> */}
+
+                                                </div>
+
+                                                <div>
+                                                    <button
+                                                        className='applaud-btn'
+                                                        onClick={handleApplaud}>
+                                                        Applaud
+                                                    </button>
+                                                </div>
+
+                                            </div>                
                                         </>
                                     )}
 
