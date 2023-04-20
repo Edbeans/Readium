@@ -14,7 +14,7 @@ function StoryFormPage() {
     const [body, setBody] = useState(story.body); 
 
     
-    const handleSubmit = (e) => {   
+    const handleSubmit = (e) => {         
         e.preventDefault();
         const storyData = {...story, title, body}
         dispatch(createStory(storyData)).then(history.push("/@profile")); 
