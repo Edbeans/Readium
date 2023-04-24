@@ -13,7 +13,6 @@ function StoryFormPage() {
     const [title, setTitle] = useState(story.title);
     const [body, setBody] = useState(story.body); 
 
-    
     const handleSubmit = (e) => {         
         e.preventDefault();
         const storyData = {...story, title, body}
