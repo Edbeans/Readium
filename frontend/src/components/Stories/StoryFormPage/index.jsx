@@ -12,7 +12,8 @@ function StoryFormPage() {
     const story = { title: "", body: "", author_id: sessionUser.id }
     const [title, setTitle] = useState(story.title);
     const [body, setBody] = useState(story.body); 
-  
+
+    
     const handleSubmit = (e) => {         
         e.preventDefault();
         const storyData = {...story, title, body}
