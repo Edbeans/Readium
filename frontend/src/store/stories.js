@@ -10,7 +10,7 @@ const receiveStories = (stories) => {
         stories
     }
 }
-       
+            
 const receiveStory = (payload) => {
     return {
         type: RECEIVE_STORY,
