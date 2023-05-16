@@ -17,7 +17,7 @@ const receiveStory = (payload) => {
         payload
     }
 }
-
+     
 const removeStory = (storyId) => {
     return {
         type: REMOVE_STORY,
